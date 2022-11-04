@@ -1,13 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { BsFillMoonFill, BsInstagram, BsCircleFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
 
 import mainImg from "../../assets/boysPlaying.png";
+import ModalRegister from "../../components/modalRegister";
+import { ModalContext, ModalProvider } from "../../contexts/ContextModal";
 
 export default function LandingPage() {
+  const { modalRegisterIsOpen, setModalRegisterIsOpen } =
+    useContext(ModalContext);
+
+  const handleModalOpen = () => {
+    console.log("Deu bom");
+    setModalRegisterIsOpen(true);
+  };
   return (
     <>
       <main className="main">
@@ -26,7 +36,9 @@ export default function LandingPage() {
           </p>
 
           <nav className="col-center w-4/5 gap-8 sm:gap-12 sm:mt-20">
-            <button className="btn_yellow">Login</button>
+            <button className="btn_yellow" onClick={handleModalOpen}>
+              Login
+            </button>
             <button className="btn_yellow">Register</button>
           </nav>
 
@@ -51,7 +63,6 @@ export default function LandingPage() {
           </button>
         </div>
       </main>
-
       <footer className="footer">
         <nav className="nav_footer">
           <Link href={""}>About Us</Link>
@@ -59,6 +70,7 @@ export default function LandingPage() {
           <Link href={""}>Developers</Link>
         </nav>
       </footer>
+      <ModalRegister />
     </>
   );
 }
