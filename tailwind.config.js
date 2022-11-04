@@ -60,7 +60,6 @@ module.exports = {
       large: "400",
     },
     extend: {},
-
   },
   plugins: [],
 };
