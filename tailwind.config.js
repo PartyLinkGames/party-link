@@ -77,6 +77,8 @@ module.exports = {
           ocupacity: "#21252980",
           primary: "#2C1471",
           "primary-dark": "#23045A",
+          "primary-ligth": "#A578F4",
+          "background-color-cloudy": "rgba(0, 0, 0, 0.75)",
         },
         width: {
           90: "90%",
