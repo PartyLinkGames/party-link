@@ -17,11 +17,13 @@ export default function LandingPage() {
             <p className="text-white text-base">Find your game duo</p>
           </header>
 
-          <Image alt="boys Playing" src={mainImg} className="sm:w-72"/>
+          <Image alt="boys Playing" src={mainImg} className="sm:w-72" />
         </div>
 
         <aside className="aside-dark">
-          <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">PartyLink</p>
+          <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">
+            PartyLink
+          </p>
 
           <nav className="col-center w-4/5 gap-8 sm:gap-12 sm:mt-20">
             <button className="btn_yellow">Login</button>
