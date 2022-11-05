@@ -22,7 +22,7 @@ export interface iRegisterForm {
 export default function ModalRegister() {
   const { modalRegisterIsOpen, setModalRegisterIsOpen } =
     useContext(ModalContext);
-  const { createUser } = useAuthentication();
+  const { createUser, loading } = useAuthentication();
   const handleModalClose = () => {
     setModalRegisterIsOpen(false);
   };
@@ -141,13 +141,23 @@ export default function ModalRegister() {
             <span className="text-rose-600 font-bold text-base">
               {errors.confirmPassword?.message}
             </span>
-
-            <button
-              type="submit"
-              className="bg-yellow-400 w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
-            >
-              Register
-            </button>
+            {loading && (
+              <button
+                type="submit"
+                className="bg-colors-primary-ligth w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
+                disabled
+              >
+                Registering...
+              </button>
+            )}
+            {!loading && (
+              <button
+                type="submit"
+                className="bg-yellow-400 w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
+              >
+                Register
+              </button>
+            )}
           </form>
         </div>
       </div>
