@@ -11,7 +11,8 @@ import { IoPersonOutline } from "react-icons/io5";
 import { VscLock } from "react-icons/vsc";
 import { useContext, useRef } from "react";
 import { ModalContext } from "../../contexts/ContextModal";
-interface iRegisterForm {
+import { useAuthentication } from "../../hooks/useAuthentication";
+export interface iRegisterForm {
   name: string;
   email: string;
   password: string;
@@ -21,6 +22,7 @@ interface iRegisterForm {
 export default function ModalRegister() {
   const { modalRegisterIsOpen, setModalRegisterIsOpen } =
     useContext(ModalContext);
+  const { createUser } = useAuthentication();
   const handleModalClose = () => {
     setModalRegisterIsOpen(false);
   };
@@ -39,8 +41,8 @@ export default function ModalRegister() {
       .oneOf([yup.ref("password")], "Ambas as senhas tem que ser iguais"),
   });
 
-  function registerUser(data: any) {
-    // console.log(data);
+  function registerUser(data: iRegisterForm) {
+    createUser(data);
   }
 
   const {
