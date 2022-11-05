@@ -1,10 +1,22 @@
 import Image from "next/image";
 import MonsterIcon from "../../assets/Monster Icon.svg";
+
+import { useForm } from "react-hook-form";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 import { AiOutlineMail } from "react-icons/ai";
 import { IoPersonOutline } from "react-icons/io5";
 import { VscLock } from "react-icons/vsc";
 import { useContext, useRef } from "react";
 import { ModalContext } from "../../contexts/ContextModal";
+interface iRegisterForm {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
 export default function ModalRegister() {
   const { modalRegisterIsOpen, setModalRegisterIsOpen } =
@@ -12,6 +24,34 @@ export default function ModalRegister() {
   const handleModalClose = () => {
     setModalRegisterIsOpen(false);
   };
+  const schema = yup.object({
+    name: yup.string().required("Nome é obrigatório"),
+    email: yup
+      .string()
+      .email("Tem que ser um email válido")
+      .required("Email é obrigatório"),
+    password: yup
+      .string()
+      .min(6, "A senha precisa de no minimo 6 digitos")
+      .required("Senha é obrigatória"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password")], "Ambas as senhas tem que ser iguais"),
+  });
+
+  function registerUser() {
+    // fazer no context com os endpoint da API
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<iRegisterForm>({
+    resolver: yupResolver(schema),
+  });
+
   return (
     <div
       className="h-screen w-full bg-colors-background-color-cloudy fixed z-1"
@@ -43,15 +83,23 @@ export default function ModalRegister() {
             Create Your account
           </h1>
 
-          <form action="" className="flex flex-col gap-4 w-4/5">
+          <form
+            action=""
+            className="flex flex-col gap-4 w-4/5"
+            onSubmit={handleSubmit(registerUser)}
+          >
             <label htmlFor="email">Your email :</label>
             <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
               <AiOutlineMail className="w-6 h-8" />
               <input
                 type="email"
                 className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                {...register("email")}
               />
             </div>
+            <span className="text-rose-600 font-bold text-base">
+              {errors.email?.message}
+            </span>
 
             <label htmlFor="name">Your name :</label>
             <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
@@ -59,8 +107,12 @@ export default function ModalRegister() {
               <input
                 type="text"
                 className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                {...register("name")}
               />
             </div>
+            <span className="text-rose-600 font-bold text-base">
+              {errors.name?.message}
+            </span>
 
             <label htmlFor="password">Your password :</label>
             <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
@@ -68,8 +120,12 @@ export default function ModalRegister() {
               <input
                 type="password"
                 className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                {...register("password")}
               />
             </div>
+            <span className="text-rose-600 font-bold text-base">
+              {errors.password?.message}
+            </span>
 
             <label htmlFor="confirmPassword">Confirm password : </label>
             <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
@@ -77,8 +133,12 @@ export default function ModalRegister() {
               <input
                 type="password"
                 className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                {...register("confirmPassword")}
               />
             </div>
+            <span className="text-rose-600 font-bold text-base">
+              {errors.confirmPassword?.message}
+            </span>
 
             <button
               type="submit"
