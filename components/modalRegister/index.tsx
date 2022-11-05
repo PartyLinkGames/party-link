@@ -3,12 +3,39 @@ import MonsterIcon from "../../assets/Monster Icon.svg";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoPersonOutline } from "react-icons/io5";
 import { VscLock } from "react-icons/vsc";
+import { useContext, useRef } from "react";
+import { ModalContext } from "../../contexts/ContextModal";
 
 export default function ModalRegister() {
+  const { modalRegisterIsOpen, setModalRegisterIsOpen } =
+    useContext(ModalContext);
+  const handleModalClose = () => {
+    setModalRegisterIsOpen(false);
+  };
   return (
-    <div className="h-screen w-full bg-colors-background-color-cloudy fixed z-1">
-      <div className="flex flex-col items-cente/ max-w-sm z-10 m-auto text-white mt-52 bg-colors-primary-dark rounded-3xl">
-        <span className="text-end mr-4 mt-4 relative">X</span>
+    <div
+      className="h-screen w-full bg-colors-background-color-cloudy fixed z-1"
+      style={{
+        transition: "0.5s",
+        opacity: modalRegisterIsOpen ? "1" : "0",
+        pointerEvents: modalRegisterIsOpen ? "all" : "none",
+      }}
+    >
+      <div
+        className="flex flex-col items-cente/ max-w-sm z-10 m-auto text-white mt-52 bg-colors-primary-dark rounded-3xl"
+        style={{
+          transition: "0.5s ease-in-out",
+          transform: modalRegisterIsOpen
+            ? "translateY(-20%)"
+            : "translateY(-200%)",
+        }}
+      >
+        <span
+          className="text-end mr-4 mt-4 relative cursor-pointer"
+          onClick={handleModalClose}
+        >
+          X
+        </span>
         <div className="content flex flex-col items-center gap-3.5">
           <Image alt="monster icon" src={MonsterIcon} />
 
