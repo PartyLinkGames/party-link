@@ -15,7 +15,6 @@ export default function LandingPage() {
     useContext(ModalContext);
 
   const handleModalOpen = () => {
-    console.log("Deu bom");
     setModalRegisterIsOpen(true);
   };
   return (
