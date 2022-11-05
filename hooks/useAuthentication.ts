@@ -34,7 +34,6 @@ export const useAuthentication = () => {
             autoClose: 2000,
           });
         }
-        console.log(error.message);
       }
     } finally {
       setLoading(false);
