@@ -27,18 +27,18 @@ export default function ModalRegister() {
     setModalRegisterIsOpen(false);
   };
   const schema = yup.object({
-    name: yup.string().required("Nome é obrigatório"),
+    name: yup.string().required("Name is required"),
     email: yup
       .string()
-      .email("Tem que ser um email válido")
-      .required("Email é obrigatório"),
+      .email("It has to be a valid email")
+      .required("Email is required"),
     password: yup
       .string()
-      .min(6, "A senha precisa de no minimo 6 digitos")
-      .required("Senha é obrigatória"),
+      .min(6, "Password needs at least 6 digits")
+      .required("Password  is required"),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password")], "Ambas as senhas tem que ser iguais"),
+      .oneOf([yup.ref("password")], "Both passwords must be the same"),
   });
 
   function registerUser(data: iRegisterForm) {
