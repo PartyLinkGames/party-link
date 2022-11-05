@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 import { useState, useEffect } from "react";
 import { iRegisterForm } from "../components/modalRegister";
-
+import { toast } from "react-toastify";
 import { app } from "../firebase/config";
 
 export const useAuthentication = () => {
@@ -28,6 +28,12 @@ export const useAuthentication = () => {
       });
     } catch (error: unknown) {
       if (error instanceof Error) {
+        if (error.message.includes("email-already-in-use")) {
+          toast.error("O email já está cadastrado", {
+            theme: "dark",
+            autoClose: 2000,
+          });
+        }
         console.log(error.message);
       }
     } finally {
@@ -36,5 +42,6 @@ export const useAuthentication = () => {
   };
   return {
     createUser,
+    loading,
   };
 };
