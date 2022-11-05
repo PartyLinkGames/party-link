@@ -39,8 +39,8 @@ export default function ModalRegister() {
       .oneOf([yup.ref("password")], "Ambas as senhas tem que ser iguais"),
   });
 
-  function registerUser() {
-    // fazer no context com os endpoint da API
+  function registerUser(data: any) {
+    // console.log(data);
   }
 
   const {
