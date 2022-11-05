@@ -31,7 +31,7 @@ export default function ModalRegister() {
         }}
       >
         <span
-          className="text-end mr-4 mt-4 relative"
+          className="text-end mr-4 mt-4 relative cursor-pointer"
           onClick={handleModalClose}
         >
           X

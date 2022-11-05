@@ -36,10 +36,10 @@ export default function LandingPage() {
           </p>
 
           <nav className="col-center w-4/5 gap-8 sm:gap-12 sm:mt-20">
+            <button className="btn_yellow">Login</button>
             <button className="btn_yellow" onClick={handleModalOpen}>
-              Login
+              Register
             </button>
-            <button className="btn_yellow">Register</button>
           </nav>
 
           <div className="hidden sm:flex absolute bottom-4 gap-8">
