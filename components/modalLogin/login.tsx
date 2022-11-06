@@ -10,11 +10,12 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ILogin } from "./interface";
 import { ModalContext } from "../../contexts/ContextModal";
+import { useAuthentication } from "../../hooks/useAuthentication";
 
 export default function ModalLogin() {
   const { modalLoginIsOpen, setModalLoginIsOpen } = useContext(ModalContext);
   const [check, setCheck] = useState<boolean>(false);
-
+  const { loginUser } = useAuthentication();
   const schema = yup.object({
     email: yup
       .string()
@@ -43,7 +44,7 @@ export default function ModalLogin() {
   }
 
   function onSubmitFunctionLogin(data: ILogin) {
-    console.log(data);
+    loginUser(data);
   }
 
   const handleModalClose = () => {
