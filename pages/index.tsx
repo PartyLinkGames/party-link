@@ -8,9 +8,13 @@ import ModalLogin from "../components/modalLogin/login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import HomePage from "./Home";
+
 export default function Home() {
   return (
     <>
+    <HomePage/>
+      {/* <LandingPage></LandingPage> */}
       <ToastContainer />
       <ModalProvider>
         <LandingPage></LandingPage>
