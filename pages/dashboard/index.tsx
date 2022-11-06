@@ -10,13 +10,15 @@ import valorantImage from "../../assets/ValorantImage.svg";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useAuthentication } from "../../hooks/useAuthentication";
 
 export default function HomePage() {
   const [hideNav, setHideNav] = useState(false);
   const [navStyle, setNavStyle] = useState("hidden");
   const [bar, setBar] = useState("h-full");
   const [buttonLogout, setButtonLogout] = useState("hidden");
+  const { logout } = useAuthentication();
 
   useEffect(() => {
     if (hideNav) {
@@ -38,7 +40,7 @@ export default function HomePage() {
           <p className="hidden sm:flex">Hello, nameUser</p>
           <Image src={imageProfile} alt="nameUser" />
           <button className="sm:hidden ">
-            <FaBars className="text-2xl"/>
+            <FaBars className="text-2xl" />
           </button>
         </div>
       </header>
@@ -87,7 +89,7 @@ export default function HomePage() {
             </button>
           </nav>
 
-          <button className={buttonLogout}>
+          <button className={buttonLogout} onClick={logout}>
             <FiLogOut className="text-2xl" />
             <p>Logout</p>
           </button>
