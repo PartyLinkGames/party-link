@@ -96,7 +96,7 @@
   }
 
   .aside-dark {
-    @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary;
+    @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary-dark;
     /* @apply col-center justify-around bg-primary-dark w-full h-48 sm:aside_desktop; */
   }
 
