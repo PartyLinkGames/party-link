@@ -7,15 +7,24 @@ interface iModalProviderProps {
 interface iModalProviderValues {
   modalRegisterIsOpen?: boolean;
   setModalRegisterIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalLoginIsOpen?: boolean;
+  setModalLoginIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ModalProvider = ({ children }: iModalProviderProps) => {
   const [modalRegisterIsOpen, setModalRegisterIsOpen] =
     useState<boolean>(false);
 
+  const [modalLoginIsOpen, setModalLoginIsOpen] = useState<boolean>(false);
+
   return (
     <ModalContext.Provider
-      value={{ modalRegisterIsOpen, setModalRegisterIsOpen }}
+      value={{
+        modalRegisterIsOpen,
+        setModalRegisterIsOpen,
+        modalLoginIsOpen,
+        setModalLoginIsOpen,
+      }}
     >
       {children}
     </ModalContext.Provider>
