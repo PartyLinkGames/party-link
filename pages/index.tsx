@@ -4,10 +4,14 @@ import styles from "../styles/Home.module.css";
 import LandingPage from "./LandingPages";
 import ModalRegister from "../components/modalRegister";
 
+import HomePage from "./Home";
+
 export default function Home() {
   return (
     <>
-      <LandingPage></LandingPage>
+    <HomePage/>
+    
+      {/* <LandingPage></LandingPage> */}
       {/* <ModalRegister></ModalRegister> */}
     </>
   );
