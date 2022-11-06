@@ -62,9 +62,7 @@ export default function ModalLogin() {
       <div
         style={{
           transition: "0.5s ease-in-out",
-          transform: modalLoginIsOpen
-            ? "translateY(-20%)"
-            : "translateY(-200%)",
+          transform: modalLoginIsOpen ? "translateY(0%)" : "translateY(-200%)",
         }}
         className="flex flex-col items-cente/ max-w-lg w-full z-10  text-white m-auto bg-primary-dark rounded-3xl pb-10"
       >

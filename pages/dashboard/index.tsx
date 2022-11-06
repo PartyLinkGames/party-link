@@ -11,13 +11,13 @@ import valorantImage from "../../assets/ValorantImage.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function HomePage() {
   const [hideNav, setHideNav] = useState(false);
   const [navStyle, setNavStyle] = useState("hidden");
   const [bar, setBar] = useState("h-full");
   const [buttonLogout, setButtonLogout] = useState("hidden");
-
   useEffect(() => {
     if (hideNav) {
       setNavStyle("aside-nav");
@@ -38,7 +38,7 @@ export default function HomePage() {
           <p className="hidden sm:flex">Hello, nameUser</p>
           <Image src={imageProfile} alt="nameUser" />
           <button className="sm:hidden ">
-            <FaBars className="text-2xl"/>
+            <FaBars className="text-2xl" />
           </button>
         </div>
       </header>
