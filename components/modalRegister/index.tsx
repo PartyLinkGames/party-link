@@ -68,7 +68,7 @@ export default function ModalRegister() {
         style={{
           transition: "0.5s ease-in-out",
           transform: modalRegisterIsOpen
-            ? "translateY(-20%)"
+            ? "translateY(-30%)"
             : "translateY(-200%)",
         }}
       >
