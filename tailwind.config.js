@@ -41,6 +41,12 @@ module.exports = {
         textSecondary: "#a1a1aa",
         textLinkColor: "#FCDA2A",
         textOnTooltip: "#27272a",
+
+        ocupacity: "#21252980",
+        primary: "#2C1471",
+        "primary-dark": "#23045A",
+        "primary-ligth": "#A578F4",
+        "background-color-cloudy": "rgba(0, 0, 0, 0.75)",
       },
       fontFamily: {
         inter: ["Inter", "ui-monospace", "SFMono-Regular"],
@@ -66,25 +72,9 @@ module.exports = {
         medium: "500",
         large: "400",
       },
-      colors: {
-        screens: {
-          sm: "426px",
-          md: "768px",
-          lg: "976px",
-          xl: "1440px",
-        },
-        colors: {
-          ocupacity: "#21252980",
-          primary: "#2C1471",
-          "primary-dark": "#23045A",
-          "primary-ligth": "#A578F4",
-          "background-color-cloudy": "rgba(0, 0, 0, 0.75)",
-        },
-        width: {
-          90: "90%",
-        },
+      width: {
+        90: "90%",
       },
     },
   },
-  plugins: [],
 };
