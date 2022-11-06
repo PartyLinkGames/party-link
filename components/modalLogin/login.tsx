@@ -1,4 +1,4 @@
-import MonsterIcon from "../../assets/Monster Icon.svg";
+import MonsterIcon from "../../assets/MonsterIcon.svg";
 import checkIcon from "../../assets/Check Icon.svg";
 import Image from "next/image";
 import * as yup from "yup";
@@ -57,7 +57,7 @@ export default function ModalLogin() {
         opacity: modalLoginIsOpen ? "1" : "0",
         pointerEvents: modalLoginIsOpen ? "all" : "none",
       }}
-      className="h-screen w-full bg-colors-background-color-cloudy fixed z-1 flex px-5 justify-center items-center"
+      className="h-screen w-full bg-background-color-cloudy fixed z-1 flex px-5 justify-center items-center"
     >
       <div
         style={{
@@ -66,7 +66,7 @@ export default function ModalLogin() {
             ? "translateY(-20%)"
             : "translateY(-200%)",
         }}
-        className="flex flex-col items-cente/ max-w-lg w-full z-10  text-white m-auto bg-colors-primary-dark rounded-3xl pb-10"
+        className="flex flex-col items-cente/ max-w-lg w-full z-10  text-white m-auto bg-primary-dark rounded-3xl pb-10"
       >
         <span
           className="text-end mr-4 mt-4 relative cursor-pointer"
@@ -92,10 +92,10 @@ export default function ModalLogin() {
           >
             E-mail adress:
           </label>
-          <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
+          <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
             <AiOutlineMail className="w-6 h-8" />
             <input
-              className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+              className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
               type={"text"}
               {...register("email")}
             />
@@ -111,10 +111,10 @@ export default function ModalLogin() {
           >
             Your password:
           </label>
-          <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
+          <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
             <VscLock className="w-6 h-8" />
             <input
-              className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+              className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
               type={"password"}
               {...register("password")}
             />
@@ -124,7 +124,7 @@ export default function ModalLogin() {
             {errors.password?.message}{" "}
           </span>
           <label
-            className="w-[25px] h-[21px] bg-colors-primary-ligth rounded-lg flex gap- 10 itens-center self-start align-middle "
+            className="w-[25px] h-[21px] bg-primary-ligth rounded-lg flex gap- 10 itens-center self-start align-middle "
             htmlFor=""
           >
             <button
@@ -145,12 +145,12 @@ export default function ModalLogin() {
           </button>
         </form>
         <div className="flex items-center justify-center flex-col gap-4">
-          <button className="text-headline text-colors-textPrimary underline cursor-pointer">
+          <button className="text-headline text-textPrimary underline cursor-pointer">
             Forgot your password?
           </button>
-          <span className="text-headline text-colors-textPrimary ">
+          <span className="text-headline text-textPrimary ">
             Dont have an account?{" "}
-            <button className="text-headline text-colors-textPrimary underline cursor-pointer">
+            <button className="text-headline text-textPrimary underline cursor-pointer">
               Create your own!
             </button>
           </span>

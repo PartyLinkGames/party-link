@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MonsterIcon from "../../assets/Monster Icon.svg";
+import MonsterIcon from "../../assets/MonsterIcon.svg";
 
 import { useForm } from "react-hook-form";
 
@@ -56,7 +56,7 @@ export default function ModalRegister() {
 
   return (
     <div
-      className="h-screen w-full bg-colors-background-color-cloudy fixed z-1"
+      className="h-screen w-full bg-background-color-cloudy fixed z-1"
       style={{
         transition: "0.5s",
         opacity: modalRegisterIsOpen ? "1" : "0",
@@ -64,7 +64,7 @@ export default function ModalRegister() {
       }}
     >
       <div
-        className="flex flex-col items-cente/ max-w-sm z-10 m-auto text-white mt-52 bg-colors-primary-dark rounded-3xl"
+        className="flex flex-col items-cente/ max-w-sm z-10 m-auto text-white mt-52 bg-primary-dark rounded-3xl"
         style={{
           transition: "0.5s ease-in-out",
           transform: modalRegisterIsOpen
@@ -91,11 +91,11 @@ export default function ModalRegister() {
             onSubmit={handleSubmit(registerUser)}
           >
             <label htmlFor="email">Your email :</label>
-            <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
+            <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <AiOutlineMail className="w-6 h-8" />
               <input
                 type="email"
-                className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
                 {...register("email")}
               />
             </div>
@@ -104,11 +104,11 @@ export default function ModalRegister() {
             </span>
 
             <label htmlFor="name">Your name :</label>
-            <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
+            <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <IoPersonOutline className="w-6 h-8" />
               <input
                 type="text"
-                className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
                 {...register("name")}
               />
             </div>
@@ -117,11 +117,11 @@ export default function ModalRegister() {
             </span>
 
             <label htmlFor="password">Your password :</label>
-            <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
+            <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <VscLock className="w-6 h-8" />
               <input
                 type="password"
-                className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
                 {...register("password")}
               />
             </div>
@@ -130,11 +130,11 @@ export default function ModalRegister() {
             </span>
 
             <label htmlFor="confirmPassword">Confirm password : </label>
-            <div className=" flex bg-colors-primary-ligth rounded-lg pl-2.5">
+            <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <VscLock className="w-6 h-8" />
               <input
                 type="password"
-                className="w-full h-8 bg-colors-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
                 {...register("confirmPassword")}
               />
             </div>
@@ -144,7 +144,7 @@ export default function ModalRegister() {
             {loading && (
               <button
                 type="submit"
-                className="bg-colors-primary-ligth w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
+                className="bg-primary-ligth w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
                 disabled
               >
                 Registering...
