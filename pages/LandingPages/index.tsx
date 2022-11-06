@@ -7,15 +7,25 @@ import { BsFillMoonFill, BsInstagram, BsCircleFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
 
 import mainImg from "../../assets/boysPlaying.png";
+import ModalLogin from "../../components/modalLogin/login";
 import ModalRegister from "../../components/modalRegister";
 import { ModalContext, ModalProvider } from "../../contexts/ContextModal";
 
 export default function LandingPage() {
-  const { modalRegisterIsOpen, setModalRegisterIsOpen } =
-    useContext(ModalContext);
+  const {
+    modalRegisterIsOpen,
+    setModalRegisterIsOpen,
+    setModalLoginIsOpen,
+    modalLoginIsOpen,
+  } = useContext(ModalContext);
 
   const handleModalOpen = () => {
     setModalRegisterIsOpen(true);
+  };
+
+  const modalLoginOpen = () => {
+    setModalLoginIsOpen(true);
+    console.log(modalLoginIsOpen);
   };
   return (
     <>
@@ -35,7 +45,9 @@ export default function LandingPage() {
           </p>
 
           <nav className="col-center w-4/5 gap-8 sm:gap-12 sm:mt-20">
-            <button className="btn_yellow">Login</button>
+            <button className="btn_yellow" onClick={modalLoginOpen}>
+              Login
+            </button>
             <button className="btn_yellow" onClick={handleModalOpen}>
               Register
             </button>
@@ -70,6 +82,7 @@ export default function LandingPage() {
         </nav>
       </footer>
       <ModalRegister />
+      <ModalLogin />
     </>
   );
 }
