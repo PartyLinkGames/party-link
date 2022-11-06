@@ -6,11 +6,13 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AiOutlineMail } from "react-icons/ai";
 import { VscLock } from "react-icons/vsc";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ILogin } from "./interface";
+import { ModalContext } from "../../contexts/ContextModal";
 
 export default function ModalLogin() {
+  const { modalLoginIsOpen, setModalLoginIsOpen } = useContext(ModalContext);
   const [check, setCheck] = useState<boolean>(false);
 
   const schema = yup.object({
@@ -44,9 +46,34 @@ export default function ModalLogin() {
     console.log(data);
   }
 
+  const handleModalClose = () => {
+    setModalLoginIsOpen(false);
+  };
+
   return (
-    <div className="h-screen w-full bg-colors-background-color-cloudy fixed z-1 flex px-5 justify-center items-center">
-      <div className="flex flex-col items-cente/ max-w-lg w-full z-10  text-white m-auto bg-colors-primary-dark rounded-3xl pb-10">
+    <div
+      style={{
+        transition: "0.5s",
+        opacity: modalLoginIsOpen ? "1" : "0",
+        pointerEvents: modalLoginIsOpen ? "all" : "none",
+      }}
+      className="h-screen w-full bg-colors-background-color-cloudy fixed z-1 flex px-5 justify-center items-center"
+    >
+      <div
+        style={{
+          transition: "0.5s ease-in-out",
+          transform: modalLoginIsOpen
+            ? "translateY(-20%)"
+            : "translateY(-200%)",
+        }}
+        className="flex flex-col items-cente/ max-w-lg w-full z-10  text-white m-auto bg-colors-primary-dark rounded-3xl pb-10"
+      >
+        <span
+          className="text-end mr-4 mt-4 relative cursor-pointer"
+          onClick={handleModalClose}
+        >
+          X
+        </span>
         <div className="flex items-center justify-center flex-col mt-4">
           <Image alt="monster icon" src={MonsterIcon} />
           <h1 className="sm:flex sm:h-12 text-4xl logo mt-10">PartyLink</h1>
