@@ -83,12 +83,11 @@
   }
 
   .main {
-    @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-center h-screen bg-primary;
-    /* @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-center h-screen bg-colors-primary; */
+    @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-center min-h-screen bg-primary;
   }
 
   .main_div {
-    @apply col-center my-8 gap-y-14 sm:ml-52 h-4/6;
+    @apply col-center my-8 gap-y-14 sm:ml-52 h-4/6 sm:pb-0 pb-5;
   }
 
   .aside_desktop {
@@ -97,11 +96,10 @@
 
   .aside-dark {
     @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary-dark;
-    /* @apply col-center justify-around bg-primary-dark w-full h-48 sm:aside_desktop; */
   }
 
   .footer {
-    @apply w-full flex justify-center mt-10 sm:justify-end sm:absolute sm:bottom-0;
+    @apply w-full flex justify-center sm:mt-10 sm:justify-end sm:absolute sm:bottom-0 bg-primary;
   }
 
   .nav_footer {
@@ -109,9 +107,7 @@
   }
 
   .mode {
-    @apply bg-primary w-[86px] h-11 flex gap-1 relative rounded-3xl mt-6 sm:absolute sm:top-4 sm:right-4 sm:mt-0;
-
-    /* @apply bg-primary-dark w-[86px] h-11 flex gap-1 relative rounded-3xl mt-6 sm:absolute sm:top-4 sm:right-4 sm:mt-0; */
+    @apply bg-primary-dark w-[86px] h-12 flex gap-1 relative rounded-3xl mt-6 sm:absolute sm:top-4 sm:right-4 sm:mt-0 sm:mb-0 mb-5;
   }
 
   .social {
@@ -127,19 +123,25 @@
   /* Desktop */
 
   .aside-home {
-    @apply hidden sm:flex bg-primary text-slate-300  h-full fixed top-0;
-    /* @apply bg-primary text-slate-300 relative h-full; */
+    @apply w-full sm:flex bg-primary text-slate-300 sm:h-full fixed top-0 sm:w-auto ease-in-out duration-500;
   }
 
   .aside-bar {
-    @apply relative w-12 text-2xl flex flex-col ml-5 h-96 justify-around mt-14;
+    @apply hidden relative w-12 text-2xl sm:flex flex-col ml-5 h-96 justify-around mt-14;
   }
   .aside-bar-logout {
-    @apply absolute bottom-6 text-2xl text-white ml-5;
+    @apply hidden sm:flex absolute bottom-9 text-2xl text-white ml-5 z-50;
+  }
+
+  .aside-div {
+    @apply relative left-0 z-50 sm:h-full bg-primary ease-in-out duration-300
+  }
+  .aside-div-hidden {
+    @apply left-[-700%] absolute ease-in-out duration-300 h-full
   }
 
   .aside-nav {
-    @apply w-44 flex flex-col ml-5 h-96 justify-around mt-14;
+    @apply w-44 flex flex-col ml-5 h-96 justify-around mt-14 bg-primary;
   }
 
   .aside-nav-btn {
@@ -147,7 +149,7 @@
   }
 
   .aside-nav-logout {
-    @apply aside-nav-btn absolute bottom-6 ml-5;
+    @apply aside-nav-btn sm:absolute bottom-6;
   }
 
   .section-desktop {
@@ -155,7 +157,7 @@
   }
 
   .section-div-games-desktop {
-    @apply sm:flex-row sm:flex-wrap sm:justify-center;
+    @apply sm:flex-row sm:flex-wrap sm:justify-center sm: w-full;
   }
 
   /* Mobile */
@@ -168,6 +170,6 @@
   }
 
   .section-div-games {
-    @apply col-center bg-white w-90 max-w-[1000px] gap-4 pt-4 rounded-lg pb-8;
+    @apply col-center bg-white w-90 max-w-[1000px] gap-4 pt-4 rounded-lg pb-8 ;
   }
 }
