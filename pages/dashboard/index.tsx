@@ -15,6 +15,8 @@ import { useContext, useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
+import CardHunts from "../../components/modalCardHunts/cardHunts";
+
 function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [navStyle, setNavStyle] = useState("sm:aside-div-hidden");
@@ -55,7 +57,7 @@ function HomePage() {
 
   return (
     <div className="bg-violet-300 w-screen h-screen  col-center">
-      <header className="fixed z-20 w-screen bg-primary flex items-center justify-between py-3 text-white ">
+      {/* <header className="fixed z-20 w-screen bg-primary flex items-center justify-between py-3 text-white ">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, nameUser</p>
@@ -165,7 +167,8 @@ function HomePage() {
             </div>
           </div>
         </section>
-      </main>
+      </main> */}
+      <CardHunts />
     </div>
   );
 }
