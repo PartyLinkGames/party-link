@@ -12,8 +12,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
-export default function HomePage() {
+function HomePage() {
   const [hideNav, setHideNav] = useState(false);
   const [navStyle, setNavStyle] = useState("hidden");
   const [bar, setBar] = useState("h-full");
@@ -137,3 +138,4 @@ export default function HomePage() {
     </div>
   );
 }
+export default protectedRoutesUserOff(HomePage);

@@ -49,12 +49,10 @@ export const useAuthentication = () => {
         data.email,
         data.password
       );
-      console.log(response);
+
       router.push("/dashboard");
     } catch (error: unknown) {
-      console.log("caiu no catch");
       if (error instanceof Error) {
-        console.log(error.message);
         if (
           error.message.includes("auth/user-not-found") ||
           error.message.includes("auth/wrong-password")
