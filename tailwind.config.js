@@ -30,6 +30,9 @@ module.exports = {
         brandHover: "#996DFF",
         textOnBrand: "#FFFFFF",
 
+        backGroundGradient1: "#6229b9",
+        backGroundGradient2: "#424141",
+
         surfacePrimary: "#18181b",
         surfaceSecondary: "#27272a",
         surfaceSecondaryHover: "#3f3f46",
