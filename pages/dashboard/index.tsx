@@ -13,8 +13,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
-export default function HomePage() {
+function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [navStyle, setNavStyle] = useState("sm:aside-div-hidden");
   const [bar, setBar] = useState("h-full z-30");
@@ -25,7 +26,6 @@ export default function HomePage() {
   const [asideClass, setAsideClass] = useState(
     "absolute top-[-200%] ease-in-out duration-500 w-full sm:aside-home"
   );
-
   const { logout } = useAuthentication();
 
   useEffect(() => {
@@ -169,3 +169,4 @@ export default function HomePage() {
     </div>
   );
 }
+export default protectedRoutesUserOff(HomePage);
