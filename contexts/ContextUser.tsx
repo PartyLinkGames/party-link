@@ -4,18 +4,21 @@ import { app } from "../firebase/config";
 interface iUserContextProps {
   children: React.ReactNode;
 }
-
-export const UserContext = createContext({});
+interface iUserContextValues {
+  user: User | null;
+}
+export const UserContext = createContext({} as iUserContextValues);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
-  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<null | User>(null);
+
   const auth = getAuth(app);
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
     });
   }, []);
-
-  return <UserContext.Provider value={{}}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+  );
 };
