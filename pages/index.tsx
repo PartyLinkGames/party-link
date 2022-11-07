@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useContext } from "react";
 
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -9,9 +10,10 @@ import { FaSun } from "react-icons/fa";
 import mainImg from "../assets/boysPlaying.png";
 import ModalLogin from "../components/modalLogin/login";
 import ModalRegister from "../components/modalRegister";
+import { protectedRoutesUserLoged } from "../components/protectedRoutes/ProtectedRoutes";
 import { ModalContext, ModalProvider } from "../contexts/ContextModal";
 
-export default function LandingPage() {
+function LandingPage() {
   const {
     modalRegisterIsOpen,
     setModalRegisterIsOpen,
@@ -25,8 +27,8 @@ export default function LandingPage() {
 
   const modalLoginOpen = () => {
     setModalLoginIsOpen(true);
-    console.log(modalLoginIsOpen);
   };
+
   return (
     <>
       <main className="main">
@@ -35,15 +37,12 @@ export default function LandingPage() {
             <p className="text-6xl logo">PartyLink</p>
             <p className="text-white text-base">Find your game duo</p>
           </header>
-
           <Image alt="boys Playing" src={mainImg} className="sm:w-72" />
         </div>
-
         <aside className="aside-dark">
           <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">
             PartyLink
           </p>
-
           <nav className="col-center w-4/5 gap-8 sm:gap-12 sm:mt-20">
             <button className="btn_yellow" onClick={modalLoginOpen}>
               Login
@@ -52,7 +51,6 @@ export default function LandingPage() {
               Register
             </button>
           </nav>
-
           <div className="hidden sm:flex absolute bottom-4 gap-8">
             <Link href={""} className="social">
               <BsInstagram />
@@ -86,3 +84,4 @@ export default function LandingPage() {
     </>
   );
 }
+export default protectedRoutesUserLoged(LandingPage);
