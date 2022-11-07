@@ -15,6 +15,8 @@ import { useContext, useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
+import CardHunts from "../../components/modalCardHunts/cardHunts";
+
 function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [navStyle, setNavStyle] = useState("sm:aside-div-hidden");
