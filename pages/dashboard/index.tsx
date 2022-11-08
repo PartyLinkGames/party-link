@@ -28,8 +28,7 @@ function HomePage() {
   const [asideClass, setAsideClass] = useState(
     "absolute top-[-200%] ease-in-out duration-500 w-full sm:aside-home"
   );
-  const { logout } = useAuthentication();
-
+  const { logout, users } = useAuthentication();
   useEffect(() => {
     if (hideNavDesktop) {
       setNavStyle("sm:aside-div");
@@ -38,7 +37,6 @@ function HomePage() {
       setNavStyle("sm:aside-div-hidden");
       setBar("h-full z-30");
     }
-    console.log("EITA PORRA");
   }, [hideNavDesktop]);
 
   useEffect(() => {
