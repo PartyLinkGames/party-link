@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src//*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       screens: {
+        mob: "400px",
         sm: "640px",
         // => @media (min-width: 640px) { ... }
 
@@ -29,9 +27,6 @@ module.exports = {
         brand: "#8257E5",
         brandHover: "#996DFF",
         textOnBrand: "#FFFFFF",
-
-        backGroundGradient1: "#6229b9",
-        backGroundGradient2: "#424141",
 
         surfacePrimary: "#18181b",
         surfaceSecondary: "#27272a",
@@ -78,6 +73,10 @@ module.exports = {
       width: {
         90: "90%",
       },
+      height: {
+        80: "80%",
+      },
     },
   },
+  plugins: [],
 };
