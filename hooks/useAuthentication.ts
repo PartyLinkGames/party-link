@@ -5,6 +5,8 @@ import {
   updateProfile,
   signOut,
 } from "firebase/auth";
+
+import { db } from "../firebase/config";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -14,9 +16,12 @@ import { app } from "../firebase/config";
 import { ILogin } from "./../components/modalLogin/interface";
 export const useAuthentication = () => {
   const auth = getAuth(app);
+
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<null | string>(null);
+  const [users, setUsers] = useState<any>([]);
   const router = useRouter();
+
   const createUser = async (data: iRegisterForm) => {
     setLoading(true);
     try {
@@ -76,5 +81,6 @@ export const useAuthentication = () => {
     loading,
     loginUser,
     logout,
+    users,
   };
 };
