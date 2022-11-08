@@ -30,7 +30,7 @@ function LandingPage() {
   };
 
   return (
-    <>
+    <div className="bg-primary min-h-screen pb-2 w-screen">
       <main className="main">
         <div className="main_div">
           <header className="col-center gap-4">
@@ -60,17 +60,6 @@ function LandingPage() {
             </Link>
           </div>
         </aside>
-        <div className="mode">
-          <button className="ml-3 text-3xl text-amber-500">
-            <BsFillMoonFill />
-          </button>
-          <button className="text-3xl text-amber-500">
-            <FaSun />
-          </button>
-          <button>
-            <BsCircleFill className="text-white text-4xl absolute top-0.5 right-2" />
-          </button>
-        </div>
       </main>
       <footer className="footer">
         <nav className="nav_footer">
@@ -81,7 +70,7 @@ function LandingPage() {
       </footer>
       <ModalRegister />
       <ModalLogin />
-    </>
+    </div>
   );
 }
 export default protectedRoutesUserLoged(LandingPage);
