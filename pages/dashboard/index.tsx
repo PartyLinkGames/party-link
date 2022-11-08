@@ -57,7 +57,7 @@ function HomePage() {
 
   return (
     <div className="bg-violet-300 w-screen h-screen  col-center">
-      <header className="fixed z-20 w-screen bg-primary flex items-center justify-between py-3 text-white ">
+      <header className="fixed z-30 w-screen bg-primary flex items-center justify-between py-3 text-white ">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, {userName}</p>
@@ -135,7 +135,7 @@ function HomePage() {
           </div>
         </aside>
 
-        <section className="section-mobile">
+        <section className="section-mobile mt-20 sm:mt-40">
           <div className="bg-primary text-white flex items-center gap-4 h-12 w-90 max-w-[1000px] rounded-lg">
             <IoHome className="ml-3 text-2xl" />
             <p className="">Home</p>
