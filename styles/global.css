@@ -57,7 +57,7 @@
   }
 
   #__next {
-    @apply w-screen h-screen col-center;
+    @apply w-screen h-screen col-center bg-primary;
   }
 
   button {
@@ -77,6 +77,35 @@
   .logo {
     @apply text-yellow-400 font-bold;
   }
+
+  .main {
+    @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-center min-h-screen bg-primary;
+  }
+
+  .main_div {
+    @apply col-center my-8 gap-y-14 sm:ml-52 h-4/6 sm:pb-0 pb-5;
+  }
+
+  .aside_desktop {
+    @apply h-screen w-52 justify-start absolute left-0 top-0 z-10;
+  }
+
+  .aside-dark {
+    @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary-dark;
+  }
+
+  .footer {
+    @apply w-full flex justify-center sm:mt-10 sm:justify-end sm:absolute sm:bottom-0 bg-primary;
+  }
+
+  .nav_footer {
+    @apply text-yellow-400 flex justify-around w-3/4 text-sm my-3;
+  }
+
+  .social {
+    @apply text-white text-2xl;
+  }
+
   /* Home Page */
 
   .main-Home {
@@ -156,7 +185,7 @@
   }
 
   .section-div-header-form-div {
-    @apply col-center w-full gap-3 justify-center
+    @apply col-center w-full gap-3 justify-center;
   }
 
   .icon-yellow {
