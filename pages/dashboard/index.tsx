@@ -16,6 +16,7 @@ import { useAuthentication } from "../../hooks/useAuthentication";
 import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
 import CardHunts from "../../components/modalCardHunts/cardHunts";
+import { useGetInfoUser } from "../../hooks/useGetUserInfo";
 
 function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
@@ -29,6 +30,7 @@ function HomePage() {
     "absolute top-[-200%] ease-in-out duration-500 w-full sm:aside-home"
   );
   const { logout, users } = useAuthentication();
+  const { userName } = useGetInfoUser();
   useEffect(() => {
     if (hideNavDesktop) {
       setNavStyle("sm:aside-div");
@@ -58,7 +60,7 @@ function HomePage() {
       <header className="fixed z-20 w-screen bg-primary flex items-center justify-between py-3 text-white ">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
-          <p className="hidden sm:flex">Hello, nameUser</p>
+          <p className="hidden sm:flex">Hello, {userName}</p>
           <Image src={imageProfile} alt="nameUser" />
           <button
             className={barMenuIcon}
