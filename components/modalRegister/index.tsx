@@ -56,7 +56,7 @@ export default function ModalRegister() {
 
   return (
     <div
-      className="h-screen w-full bg-background-color-cloudy flex fixed z-1"
+      className="h-screen w-full bg-background-color-cloudy px-5 flex fixed z-1"
       style={{
         transition: "0.5s",
         opacity: modalRegisterIsOpen ? "1" : "0",
@@ -64,7 +64,7 @@ export default function ModalRegister() {
       }}
     >
       <div
-        className="flex flex-col w-full max-w-sm z-10 m-auto text-white  bg-primary-dark rounded-3xl"
+        className="flex flex-col w-full max-w-sm z-10 m-auto text-white bg-primary-dark rounded-3xl"
         style={{
           transition: "0.5s ease-in-out",
           transform: modalRegisterIsOpen
