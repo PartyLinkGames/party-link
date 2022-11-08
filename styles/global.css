@@ -55,10 +55,6 @@
   ul {
     list-style: none;
   }
-  /* 
-  body {
-    @apply bg-primary;
-  } */
 
   #__next {
     @apply w-screen h-screen col-center;
@@ -81,49 +77,16 @@
   .logo {
     @apply text-yellow-400 font-bold;
   }
-
-  .main {
-    @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-center min-h-screen bg-primary;
-  }
-
-  .main_div {
-    @apply col-center my-8 gap-y-14 sm:ml-52 h-4/6 sm:pb-0 pb-5;
-  }
-
-  .aside_desktop {
-    @apply h-screen w-52 justify-start absolute left-0 top-0;
-  }
-
-  .aside-dark {
-    @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary-dark;
-  }
-
-  .footer {
-    @apply w-full flex justify-center sm:mt-10 sm:justify-end sm:absolute sm:bottom-0 bg-primary;
-  }
-
-  .nav_footer {
-    @apply text-yellow-400 flex justify-around w-3/4 text-sm my-3;
-  }
-
-  .mode {
-    @apply bg-primary-dark w-[86px] h-12 flex gap-1 relative rounded-3xl mt-6 sm:absolute sm:top-4 sm:right-4 sm:mt-0 sm:mb-0 mb-5;
-  }
-
-  .social {
-    @apply text-white text-2xl;
-  }
-
   /* Home Page */
 
   .main-Home {
-    @apply bg-violet-300 w-full col-center sm:flex-row sm:justify-between;
+    @apply w-full min-h-full col-center sm:flex-row sm:justify-between z-20 relative top-0;
   }
 
   /* Desktop */
 
   .aside-home {
-    @apply w-full sm:flex bg-primary text-slate-300 sm:h-full fixed top-0 sm:w-auto ease-in-out duration-500;
+    @apply w-full sm:flex bg-primary text-slate-300 sm:h-full fixed top-0 sm:w-auto ease-in-out duration-500 z-30;
   }
 
   .aside-bar {
@@ -134,10 +97,10 @@
   }
 
   .aside-div {
-    @apply relative left-0 z-50 sm:h-full bg-primary ease-in-out duration-300
+    @apply relative left-0 z-50 sm:h-full bg-primary ease-in-out duration-300;
   }
   .aside-div-hidden {
-    @apply left-[-700%] absolute ease-in-out duration-300 h-full
+    @apply left-[-700%] absolute ease-in-out duration-300 h-full;
   }
 
   .aside-nav {
@@ -153,23 +116,54 @@
   }
 
   .section-desktop {
-    @apply sm:col-center sm:w-full sm:ml-16 sm:mt-80;
+    @apply sm:col-center sm:w-full sm:ml-16 sm:mt-80 sm:items-start;
   }
 
   .section-div-games-desktop {
-    @apply sm:flex-row sm:flex-wrap sm:justify-center sm: w-full;
+    @apply sm:flex-row sm:flex-wrap sm:justify-center  sm:w-full;
   }
 
   /* Mobile */
 
   .section-mobile {
-    @apply col-center w-full mt-16 sm:col-center sm:w-full sm:ml-16 sm:mt-20 gap-4 bg-violet-300 pb-4;
+    @apply col-center w-full sm:col-center sm:w-full sm:ml-20  gap-4 pb-4;
   }
   .section-div {
     @apply col-center bg-white w-90 max-w-[1000px] gap-4 pt-4 rounded-lg;
   }
 
   .section-div-games {
-    @apply col-center bg-white w-90 max-w-[1000px] gap-4 pt-4 rounded-lg pb-8 ;
+    @apply col-center bg-white w-90 max-w-[1000px] gap-4 pt-4 rounded-lg pb-8;
+  }
+
+  /* Home Tibia */
+
+  /* Cards*/
+  .card-info {
+    @apply text-[12px] font-extrabold text-gray-500;
+  }
+
+  .card-p-data {
+    @apply text-sm font-extrabold text-gray-500;
+  }
+
+  .card-span-data {
+    @apply text-[#4bc139];
+  }
+
+  .section-div-header {
+    @apply w-full pb-8 sm:pb-0 bg-[#00000058] gap-5 rounded-lg sm:h-48  sm:flex sm:items-center;
+  }
+
+  .section-div-header-form-div {
+    @apply col-center w-full gap-3 justify-center
+  }
+
+  .icon-yellow {
+    @apply text-2xl text-yellow-400 sm:hidden;
+  }
+
+  .section-div-header-choose-ul {
+    @apply w-90 h-40 sm:h-full col-center gap-2 overflow-y-auto py-3 mt-1 sm:mt-0;
   }
 }
