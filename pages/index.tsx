@@ -30,7 +30,7 @@ function LandingPage() {
   };
 
   return (
-    <div className="bg-primary min-h-screen pb-2 w-screen">
+    <>
       <main className="main">
         <div className="main_div">
           <header className="col-center gap-4">
@@ -39,7 +39,7 @@ function LandingPage() {
           </header>
           <Image alt="boys Playing" src={mainImg} className="sm:w-72" />
         </div>
-        <aside className="aside-dark">
+        <aside className={modalRegisterIsOpen ? "aside-dark z-0" : modalLoginIsOpen ? "aside-dark z-0" : "aside-dark z-20"}>
           <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">
             PartyLink
           </p>
@@ -70,7 +70,7 @@ function LandingPage() {
       </footer>
       <ModalRegister />
       <ModalLogin />
-    </div>
+    </>
   );
 }
 export default protectedRoutesUserLoged(LandingPage);

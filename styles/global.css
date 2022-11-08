@@ -57,7 +57,7 @@
   }
 
   #__next {
-    @apply w-screen h-screen col-center bg-primary-dark;
+    @apply w-screen h-screen col-center bg-primary;
   }
 
   button {
@@ -87,7 +87,7 @@
   }
 
   .aside_desktop {
-    @apply h-screen w-52 justify-start absolute left-0 top-0 z-20;
+    @apply h-screen w-52 justify-start absolute left-0 top-0 z-10;
   }
 
   .aside-dark {
