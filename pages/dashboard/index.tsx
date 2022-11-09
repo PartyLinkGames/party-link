@@ -95,7 +95,6 @@ function HomePage() {
             className={bar}
             onMouseEnter={(event) => {
               event.preventDefault();
-              console.log("oi");
               setHideNavDesktop(true);
             }}
           >
