@@ -15,6 +15,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { LiCharacters } from "../../../components/LiCharacter";
 import { CardsTeamTibia } from "../../../components/CardsTeamTibia";
+
 import {
   useGetCharCollection,
   useGetInfoUser,
