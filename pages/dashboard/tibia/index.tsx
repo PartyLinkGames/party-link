@@ -14,7 +14,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { LiCharacters } from "../../../components/LiCharacter";
-import { CardsTeamTibia } from "../../../components/CardsTeamTibia";
+import HuntCard from "../../../components/cardHunt";
 
 function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
@@ -227,9 +227,7 @@ function HomePage() {
                 </div>
               </div>
             </header>
-            <ul className="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full">
-              <CardsTeamTibia />
-            </ul>
+            <HuntCard name="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full" />
           </div>
         </section>
       </main>
