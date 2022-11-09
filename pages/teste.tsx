@@ -9,9 +9,11 @@ const teste = (props: Props) => {
   const { currentUser, registerChar } = useRegisterCharTibia();
   const [nickName, setNickName] = useState("");
   const [date, setDte] = useState("");
-  const handleSubmmit = (e: any) => {
+  const handleSubmmit = (e: React.FormEvent) => {
     e.preventDefault();
-    registerChar(currentUser.uid, nickName);
+    if (currentUser) {
+      registerChar(currentUser.uid, nickName);
+    }
   };
   return (
     <>
