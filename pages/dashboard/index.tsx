@@ -15,7 +15,7 @@ import { useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
-import CardHunts from "../../components/modalCardHunts/cardHunts";
+// import CardHunts from "../../components/modalCardHunts/cardHunts";
 import { useGetInfoUser } from "../../hooks/useGetUserInfo";
 
 function HomePage() {
@@ -64,7 +64,11 @@ function HomePage() {
 
       <main className="main-Home">
         <aside
-          className={hideNavMobile ? "aside-home" : "absolute top-[-200%] w-full ease-in-out duration-500 sm:aside-home"}
+          className={
+            hideNavMobile
+              ? "aside-home"
+              : "absolute top-[-200%] w-full ease-in-out duration-500 sm:aside-home"
+          }
           onMouseLeave={(event) => {
             event.preventDefault();
             setHideNavDesktop(false);
@@ -74,7 +78,6 @@ function HomePage() {
             className={hideNavDesktop ? "hidden" : "h-full z-30"}
             onMouseEnter={(event) => {
               event.preventDefault();
-              console.log("oi");
               setHideNavDesktop(true);
             }}
           >
@@ -88,7 +91,9 @@ function HomePage() {
             <FiLogOut className="aside-bar-logout" />
           </div>
 
-          <div className={hideNavDesktop ? "sm:aside-div" : "sm:aside-div-hidden"}>
+          <div
+            className={hideNavDesktop ? "sm:aside-div" : "sm:aside-div-hidden"}
+          >
             <nav className="aside-nav">
               <button className="aside-nav-btn">
                 <IoHome className="text-2xl" />
@@ -119,8 +124,7 @@ function HomePage() {
             <h1 className="text-4xl font-bold">Select your game</h1>
 
             <div className="section-div-games">
-              <Link href={"dashboard/tibia"}>
-              <Link href={""} className="hover:scale-110">
+              <Link href={"/dashboard/tibia"} className="hover:scale-110">
                 <Image
                   src={tibiaImage}
                   alt="Tibia Image"
@@ -138,10 +142,7 @@ function HomePage() {
                 </figure>
 
                 <figure className="rounded-xl overflow-hidden hover:scale-110">
-                  <Image
-                    src={leagueImage}
-                    alt="Valorant Image"
-                  />
+                  <Image src={leagueImage} alt="Valorant Image" />
                 </figure>
               </div>
             </div>
