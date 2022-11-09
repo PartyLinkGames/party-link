@@ -38,6 +38,9 @@ module.exports = {
 
         backGroundButton: "#FCDA2A",
 
+        backGroundGradient1: "#6229b9",
+        backGroundGradient2: "#424141",
+
         textPrimary: "#f4f4f5",
         textSecondary: "#a1a1aa",
         textLinkColor: "#FCDA2A",
