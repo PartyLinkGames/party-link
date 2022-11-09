@@ -7,11 +7,11 @@ import { FiLogOut } from "react-icons/fi";
 import tibiaImage from "../../assets/TibiaImage.svg";
 import imageProfile from "../../assets/Ellipse.svg";
 import valorantImage from "../../assets/ValorantImage.svg";
-import boysWalking from "../../assets/BoysWalking.gif";
+import leagueImage from "../../assets/LeagueImage.svg";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { protectedRoutesUserOff } from "../../components/protectedRoutes/ProtectedRoutes";
 
@@ -20,9 +20,6 @@ import { useGetInfoUser } from "../../hooks/useGetUserInfo";
 
 function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
-  const [navStyle, setNavStyle] = useState("sm:aside-div-hidden");
-  const [bar, setBar] = useState("h-full z-30");
-
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [barMenuIcon, setBarMenuIcon] = useState("sm:hidden w-6 text-center");
   const [closeIcon, setCloseIcon] = useState("hidden");
@@ -31,39 +28,21 @@ function HomePage() {
   );
   const { logout } = useAuthentication();
   const { userName } = useGetInfoUser();
-  useEffect(() => {
-    if (hideNavDesktop) {
-      setNavStyle("sm:aside-div");
-      setBar("hidden");
-    } else {
-      setNavStyle("sm:aside-div-hidden");
-      setBar("h-full z-30");
-    }
-  }, [hideNavDesktop]);
-
-  useEffect(() => {
-    if (hideNavMobile) {
-      setBarMenuIcon("hidden");
-      setCloseIcon("sm:hidden w-6 text-center");
-      setAsideClass("aside-home");
-    } else {
-      setBarMenuIcon("sm:hidden w-6 text-center");
-      setCloseIcon("hidden");
-      setAsideClass(
-        "absolute top-[-200%] w-full ease-in-out duration-500 sm:aside-home"
-      );
-    }
-  }, [hideNavMobile]);
 
   return (
-    <div className="bg-violet-300 w-screen h-screen  col-center">
-      <header className="fixed z-30 w-screen bg-primary flex items-center justify-between py-3 text-white ">
+    <div className="w-screen h-screen col-center relative">
+      <div className="w-screen h-screen relative">
+        <div className="bg-[url('https://wallpapercave.com/wp/wp7219130.jpg')] w-full h-full fixed"></div>
+        <div className="w-full h-full fixed bg-[#00000069]"></div>
+      </div>
+
+      <header className="fixed z-30 w-screen bg-primary flex items-center justify-between text-white h-14">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, {userName}</p>
           <Image src={imageProfile} alt="nameUser" />
           <button
-            className={barMenuIcon}
+            className={!hideNavMobile ? "sm:hidden w-6 text-center" : "hidden"}
             onClick={(event) => {
               event.preventDefault();
               setHideNavMobile(true);
@@ -72,7 +51,7 @@ function HomePage() {
             <FaBars className="text-2xl" />
           </button>
           <button
-            className={closeIcon}
+            className={hideNavMobile ? "sm:hidden w-6 text-center" : "hidden"}
             onClick={(event) => {
               event.preventDefault();
               setHideNavMobile(false);
@@ -85,14 +64,14 @@ function HomePage() {
 
       <main className="main-Home">
         <aside
-          className={asideClass}
+          className={hideNavMobile ? "aside-home" : "absolute top-[-200%] w-full ease-in-out duration-500 sm:aside-home"}
           onMouseLeave={(event) => {
             event.preventDefault();
             setHideNavDesktop(false);
           }}
         >
           <div
-            className={bar}
+            className={hideNavDesktop ? "hidden" : "h-full z-30"}
             onMouseEnter={(event) => {
               event.preventDefault();
               console.log("oi");
@@ -109,7 +88,7 @@ function HomePage() {
             <FiLogOut className="aside-bar-logout" />
           </div>
 
-          <div className={navStyle}>
+          <div className={hideNavDesktop ? "sm:aside-div" : "sm:aside-div-hidden"}>
             <nav className="aside-nav">
               <button className="aside-nav-btn">
                 <IoHome className="text-2xl" />
@@ -135,34 +114,35 @@ function HomePage() {
           </div>
         </aside>
 
-        <section className="section-mobile mt-20 sm:mt-40">
-          <div className="bg-primary text-white flex items-center gap-4 h-12 w-90 max-w-[1000px] rounded-lg">
-            <IoHome className="ml-3 text-2xl" />
-            <p className="">Home</p>
-          </div>
-
+        <section className="section-mobile">
           <div className="section-div">
-            <h1 className="text-3xl text-primary font-bold">
-              Select your game
-            </h1>
+            <h1 className="text-4xl font-bold">Select your game</h1>
 
             <div className="section-div-games">
               <Link href={"dashboard/tibia"}>
+              <Link href={""} className="hover:scale-110">
                 <Image
                   src={tibiaImage}
                   alt="Tibia Image"
-                  className="rounded-lg"
+                  className="rounded-lg "
                 />
               </Link>
-              <p className="font-bold text-2xl text-gray-600 mt-12 mb-6">
-                Em breve...
-              </p>
-              <div className="col-center sm:flex-row gap-5 sm:flex-wrap sm:justify-center">
-                <Image
-                  src={valorantImage}
-                  alt="Valorant Image"
-                  className="rounded-xl"
-                />
+              <p className="font-bold text-2xl mt-12 mb-6">Coming soon...</p>
+              <div className="col-center sm:flex-row gap-4 sm:flex-wrap sm:justify-center">
+                <figure className="rounded-3xl overflow-hidden hover:scale-110 hover:rounded-4xl">
+                  <Image
+                    src={valorantImage}
+                    alt="Valorant Image"
+                    // height={290}
+                  />
+                </figure>
+
+                <figure className="rounded-xl overflow-hidden hover:scale-110">
+                  <Image
+                    src={leagueImage}
+                    alt="Valorant Image"
+                  />
+                </figure>
               </div>
             </div>
           </div>
