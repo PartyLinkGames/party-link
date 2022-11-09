@@ -12,7 +12,8 @@ export default function HuntCard({ name, level }: iClassName) {
   const [selectHunt, setSelectHunt] = useState<iHunt[]>([]);
   const [isHunt, setIsHunt] = useState<boolean>(false);
 
-  const { hunt } = useFetchHunts();
+  const { hunt, ids } = useFetchHunts();
+  console.log(ids);
   useEffect(() => {
     const selectedHunt = () => {
       hunt.map((elem) => {

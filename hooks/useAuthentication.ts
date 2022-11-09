@@ -55,7 +55,7 @@ export const useAuthentication = () => {
         data.password
       );
 
-      router.push("/dashboard");
+      // router.push("/dashboard");
     } catch (error: unknown) {
       if (error instanceof Error) {
         if (
