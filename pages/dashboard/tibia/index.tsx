@@ -51,7 +51,7 @@ function HomePage() {
   }, []);
   const handleCreateChracter = (e: any) => {
     e.preventDefault();
-    registerChar(currentUser.uid, nickName);
+    registerChar(currentUser.uid, nickName.toLowerCase());
     setNickName("");
   };
   return (
