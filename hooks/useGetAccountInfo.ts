@@ -10,7 +10,7 @@ export const useGetAccountInfo = () => {
       const response = await instance(`v3/character/${nickName}`);
 
       if (response.data.characters.character.name !== "") {
-        setCharName(response.data.characters.character.name);
+        setCharName(nickName);
         setCharLevel(response.data.characters.character.level);
         setCharVocation(response.data.characters.character.vocation);
       }
