@@ -8,6 +8,7 @@ const teste = (props: Props) => {
   const { hunt } = useFetchHunts();
   const { currentUser, registerChar } = useRegisterCharTibia();
   const [nickName, setNickName] = useState("");
+  const [date, setDte] = useState("");
   const handleSubmmit = (e: any) => {
     e.preventDefault();
     registerChar(currentUser.uid, nickName);

@@ -1,4 +1,10 @@
-import { onSnapshot, query, collection } from "firebase/firestore";
+import {
+  onSnapshot,
+  query,
+  collection,
+  doc,
+  getDocs,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../firebase/config";
 
@@ -34,11 +40,18 @@ export interface iDungeon {
 export const useFetchHunts = () => {
   const [hunt, setHunts] = useState<iHunt[]>([]);
   const [loading, setLoading] = useState<boolean | null>(null);
+  const [ids, setIds] = useState<any>(null);
   useEffect(() => {
     const fetchHunt = () => {
       const collectionRef = collection(db, "teste");
       let q = query(collectionRef);
-
+      const teste = async () => {
+        let q = query(collectionRef);
+        onSnapshot(q, (docs) => {
+          setIds(docs.docs.map((doc: any) => doc.id));
+        });
+      };
+      teste();
       onSnapshot(q, (hunts) => {
         setHunts(
           hunts.docs.map((currentHunt: any) => ({
@@ -51,5 +64,6 @@ export const useFetchHunts = () => {
   }, []);
   return {
     hunt,
+    ids,
   };
 };

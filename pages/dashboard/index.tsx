@@ -27,7 +27,7 @@ function HomePage() {
     "absolute top-[-200%] ease-in-out duration-500 w-full sm:aside-home"
   );
   const { logout } = useAuthentication();
-  const { userName } = useGetInfoUser();
+  const { userName, photoURL } = useGetInfoUser();
 
   return (
     <div className="w-screen h-screen col-center relative">
@@ -40,7 +40,15 @@ function HomePage() {
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, {userName}</p>
-          <Image src={imageProfile} alt="nameUser" />
+          <Image
+            className="rounded-xl"
+            loader={() => (photoURL ? photoURL : "")}
+            src={photoURL ? photoURL : ""}
+            unoptimized={true}
+            alt="nameUser"
+            width={50}
+            height={50}
+          />
           <button
             className={!hideNavMobile ? "sm:hidden w-6 text-center" : "hidden"}
             onClick={(event) => {
