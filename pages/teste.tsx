@@ -14,7 +14,7 @@ const teste = (props: Props) => {
   const { scheduleHunt } = useScheduleHunt();
   const handleSubmmit = (e: any) => {
     e.preventDefault();
-    scheduleHunt(nickName, "1gyGFBGkP8mXTIqhih5A", date, hour);
+    scheduleHunt(nickName, "0fUKPCpezFkYrFipPv8P", date, hour);
   };
   // useEffect(() => {
   //   scheduleHunt("teste", "0fUKPCpezFkYrFipPv8P", "12/12/2022", "02:00");
