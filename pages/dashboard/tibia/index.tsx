@@ -30,6 +30,9 @@ import { protectedRoutesUserOff } from "../../../components/protectedRoutes/Prot
 
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import HuntingMarking from "../../../components/modalHuntingMark/modalHuntinMarking";
+import { ModalContext } from "../../../contexts/ContextModal";
+import { useFetchMarkingHunts } from "../../../hooks/useFetchMarkingHunts";
 
 const schema = yup.object({
   infoName: yup.string().required(),
@@ -41,13 +44,12 @@ interface iValueNick {
 
 function HomePage() {
   const { user } = useContext(UserContext);
-
+  const { setModalHuntingMarkIsOpen } = useContext(ModalContext);
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
   const { getAccountInfo, charName, charLevel, charVocation } =
     useGetAccountInfo();
-
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
@@ -57,6 +59,12 @@ function HomePage() {
   const { registerChar, currentUser } = useRegisterCharTibia();
   const { deleteChar } = useDeleteCharTibia();
 
+  const [choseHuntId, setChoseHuntId] = useState("");
+  const handleOpenModalMarkingHunt = () => {
+    // fetchMarkingHunts(choseHuntId);
+    setModalHuntingMarkIsOpen(true);
+  };
+  // const { fetchMarkingHunts } = useFetchMarkingHunts();
   useEffect(() => {
     const getBonecos = () => {
       getCharCollection(user?.uid);
@@ -298,9 +306,17 @@ function HomePage() {
               isPlayer={character}
               level={charLevel ? charLevel : null}
               name="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full"
+              setChoseHuntId={setChoseHuntId}
+              handleOpenModalMarkingHunt={handleOpenModalMarkingHunt}
             />
           </div>
         </section>
+        <HuntingMarking
+          choseHuntId={choseHuntId}
+          charName={charName}
+          charLevel={charLevel}
+          charVocation={charVocation}
+        />
       </main>
     </div>
   );

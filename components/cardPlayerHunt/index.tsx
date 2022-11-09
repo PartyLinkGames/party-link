@@ -1,7 +1,25 @@
 import Image from "next/image";
 import personImage from "../../assets/Bandit 1.png";
-
-export default function CardPlayerOnHunt() {
+import { useScheduleHunt } from "../../hooks/useSchedulerHunt";
+interface iCardPlayerOnHuntProps {
+  char: string;
+  charName: string | null;
+  choseHuntId: string;
+  date: string;
+  hour?: string;
+}
+export default function CardPlayerOnHunt({
+  char,
+  charName,
+  choseHuntId,
+  date,
+  hour,
+}: iCardPlayerOnHuntProps) {
+  console.log(char, charName, choseHuntId, date, hour);
+  const { deleteHuntMark } = useScheduleHunt();
+  const handleDeleteHunt = () => {
+    deleteHuntMark(charName, choseHuntId, date, hour);
+  };
   return (
     <div
       className="w-[125px] max-h-[150px] rounded-md shadow-[0px_0px_6px_2px_#3b1064,0px_0px_15px_0px_#02221a]  hover:shadow-[0px_0px_6px_2px_#9aaa05,0px_0px_15px_0px_#85bb08] overflow-y-auto bg-gradient-to-tr from-[#0a316bc5] via-[#29096688] to-[#1a4e9196] 
@@ -10,7 +28,7 @@ export default function CardPlayerOnHunt() {
       <div className="flex p-2 gap-1 rounded-md flex-col  ">
         <div className="flex flex-col gap-2 ">
           <p className="leading-4 font-bold text-[13px] text-yellow-400 ">
-            Seth Darklight
+            {char}
           </p>
         </div>
         <div className="flex items-center justify-center"></div>
@@ -29,10 +47,15 @@ export default function CardPlayerOnHunt() {
             alt=""
           />
         </div>
-        <button className=" bg-backGroundButton opacity-[0.5] hover:opacity-[100] w-20 rounded-md text-sm font-bold self-center text-black">
-          {" "}
-          Exit
-        </button>
+        {char === charName ? (
+          <button
+            className=" bg-backGroundButton opacity-[0.5] hover:opacity-[100] w-20 rounded-md text-sm font-bold self-center text-black"
+            onClick={handleDeleteHunt}
+          >
+            {" "}
+            Exit
+          </button>
+        ) : null}
       </div>
     </div>
   );
