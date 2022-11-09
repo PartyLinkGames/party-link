@@ -65,7 +65,7 @@ export function CardHunts({
           <button
             className="self-end bg-backGroundButton h-[28px] w-[89px] rounded-lg font-bold text-[13px] hover:bg-opacity-[0.9]"
             id={data.idFB}
-            onClick={(e) => {
+            onClick={(e: any) => {
               handleOpenModalMarkingHunt();
               fetchMarkingHunts(e.target.id);
               setChoseHuntId(e.target.id);

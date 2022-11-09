@@ -50,7 +50,7 @@ export default function HuntingMarking({
       <div
         className={
           modalHuntingMarkIsOpen
-            ? "bg-gradient-to-r translate-y-0 from-primary-dark to-purple-800 via-[#2f0b4d] rounded-md flex w-[700px] h-[500px] flex-col gap-6 p-5 shadow-[0px_0px_10px_2px_#3f2972,0px_0px_40px_2px_#1e1b36]"
+            ? "bg-gradient-to-r  from-primary-dark to-purple-800 via-[#2f0b4d] translate-y-0 rounded-md flex w-[700px] h-[500px] flex-col gap-6 p-5 shadow-[0px_0px_10px_2px_#3f2972,0px_0px_40px_2px_#1e1b36]"
             : "translate-y-[-200%]"
         }
       >

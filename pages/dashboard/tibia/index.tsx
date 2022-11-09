@@ -89,7 +89,7 @@ function HomePage() {
         <div className="w-full h-full fixed bg-[#00000058]"></div>
       </div>
 
-      <header className="fixed z-40 w-screen bg-primary flex items-center justify-between py-3 text-white ">
+      <header className="fixed z-40 w-screen bg-gradient-to-r  from-primary-dark to-purple-800 via-[#2f0b4d] flex items-center justify-between py-3 text-white ">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, {userName}</p>
