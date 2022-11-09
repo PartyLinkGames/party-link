@@ -1,12 +1,20 @@
 import Image from "next/image";
+import { useFetchMarkingHunts } from "../../hooks/useFetchMarkingHunts";
 
 import { iHuntObjNew } from "../cardHunt";
 
 interface iCardHunts {
   data: iHuntObjNew;
+  setChoseHuntId: any;
+  handleOpenModalMarkingHunt: any;
 }
 
-export function CardHunts({ data }: iCardHunts) {
+export function CardHunts({
+  data,
+  setChoseHuntId,
+  handleOpenModalMarkingHunt,
+}: iCardHunts) {
+  const { fetchMarkingHunts } = useFetchMarkingHunts();
   return (
     <li className="bg-gradient-to-b from-backGroundGradient1 to-backGroundGradient2 translate-[z-0] rounded-lg list-none hover:scale-[1.02]  md:transform-none ease-in-out duration-200 ">
       <Image
@@ -57,6 +65,11 @@ export function CardHunts({ data }: iCardHunts) {
           <button
             className="self-end bg-backGroundButton h-[28px] w-[89px] rounded-lg font-bold text-[13px] hover:bg-opacity-[0.9]"
             id={data.idFB}
+            onClick={(e) => {
+              handleOpenModalMarkingHunt();
+              fetchMarkingHunts(e.target.id);
+              setChoseHuntId(e.target.id);
+            }}
           >
             More info
           </button>
