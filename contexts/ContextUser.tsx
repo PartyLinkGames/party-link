@@ -4,7 +4,7 @@ import { app } from "../firebase/config";
 interface iUserContextProps {
   children: React.ReactNode;
 }
-interface iUserContextValues {
+export interface iUserContextValues {
   user: User | null;
 }
 export const UserContext = createContext({} as iUserContextValues);
