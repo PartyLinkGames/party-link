@@ -87,15 +87,15 @@
   }
 
   .aside_desktop {
-    @apply h-screen w-52 justify-start absolute left-0 top-0 z-10;
+    @apply h-screen w-52 justify-start absolute left-0 top-0 z-20;
   }
 
   .aside-dark {
-    @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary-dark;
+    @apply col-center justify-around w-full h-48 sm:aside_desktop bg-primary-dark z-30;
   }
 
   .footer {
-    @apply w-full flex justify-center sm:mt-10 sm:justify-end sm:absolute sm:bottom-0 bg-primary;
+    @apply w-full flex justify-center sm:mt-10 sm:justify-end sm:absolute sm:bottom-0 bg-primary z-10;
   }
 
   .nav_footer {
@@ -104,6 +104,33 @@
 
   .social {
     @apply text-white text-2xl;
+  }
+
+  /* Modal Login */
+
+  .modal-contaneir {
+    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center transition duration-500 delay-150 z-40;
+  }
+
+  .modal-div-container {
+    @apply flex flex-col items-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 transition duration-500 delay-150 relative;
+  }
+  .modal-form-label {
+    @apply self-start text-headline3 font-bold leading-[17.58px];
+  }
+
+  .modal-form-div-input {
+    @apply flex bg-primary-ligth rounded-lg pl-2.5 w-full items-center border-indigo-500/0 hover:border-yellow-400/70 border-[3px] border-solid;
+  }
+
+  .modal-form-input {
+    @apply w-full h-9 bg-primary-ligth outline-0 rounded-lg pr-px pl-1 outline-none;
+  }
+  .btn-yellow-submit {
+    @apply bg-yellow-400 w-full h-9 rounded-xl font-bold text-xl text-black;
+  }
+  .form_mensage_alert {
+    @apply text-rose-600 font-semibold text-[14px];
   }
 
   /* Home Page */
