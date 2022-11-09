@@ -39,7 +39,7 @@ function LandingPage() {
           </header>
           <Image alt="boys Playing" src={mainImg} className="sm:w-72" />
         </div>
-        <aside className="aside-dark">
+        <aside className={modalRegisterIsOpen ? "aside-dark z-0" : modalLoginIsOpen ? "aside-dark z-0" : "aside-dark z-20"}>
           <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">
             PartyLink
           </p>
@@ -60,17 +60,6 @@ function LandingPage() {
             </Link>
           </div>
         </aside>
-        <div className="mode">
-          <button className="ml-3 text-3xl text-amber-500">
-            <BsFillMoonFill />
-          </button>
-          <button className="text-3xl text-amber-500">
-            <FaSun />
-          </button>
-          <button>
-            <BsCircleFill className="text-white text-4xl absolute top-0.5 right-2" />
-          </button>
-        </div>
       </main>
       <footer className="footer">
         <nav className="nav_footer">
