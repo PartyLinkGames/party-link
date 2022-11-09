@@ -13,7 +13,6 @@ export default function HuntCard({ name, level }: iClassName) {
   const [isHunt, setIsHunt] = useState<boolean>(false);
 
   const { hunt } = useFetchHunts();
-  //   console.log(level);
   useEffect(() => {
     const selectedHunt = () => {
       hunt.map((elem) => {
