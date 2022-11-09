@@ -14,7 +14,6 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { LiCharacters } from "../../../components/LiCharacter";
-import { CardsTeamTibia } from "../../../components/CardsTeamTibia";
 import {
   useGetCharCollection,
   useGetInfoUser,
@@ -23,7 +22,6 @@ import { useRegisterCharTibia } from "../../../hooks/useRegisterCharTibia";
 import { useAuthentication } from "../../../hooks/useAuthentication";
 import { UserContext } from "../../../contexts/ContextUser";
 import HuntCard from "../../../components/cardHunt";
-import HuntingMarking from "../../../components/modalHuntingMark/modalHuntinMarking";
 
 function HomePage() {
   const { userName, userUid } = useGetInfoUser();
@@ -262,7 +260,6 @@ function HomePage() {
           </div>
         </section>
       </main>
-      <HuntingMarking />
     </div>
   );
 }
