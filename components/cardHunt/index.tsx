@@ -6,25 +6,26 @@ import { CardHunts } from "../modalCardHunts/cardHunts";
 
 interface iClassName {
   name: string;
+  level: number | null;
 }
-export default function HuntCard({ name }: iClassName) {
+export default function HuntCard({ name, level }: iClassName) {
   const [selectHunt, setSelectHunt] = useState<iHunt[]>([]);
   const [isHunt, setIsHunt] = useState<boolean>(false);
 
   const { hunt } = useFetchHunts();
-  let level = 60;
-
   useEffect(() => {
     const selectedHunt = () => {
       hunt.map((elem) => {
-        if (elem.minLevel <= level && elem.maxLevel >= level) {
-          setSelectHunt((previous) => [...previous, elem]);
-          setIsHunt(true);
+        if (level) {
+          if (elem.minLevel <= level && elem.maxLevel >= level) {
+            setSelectHunt((previous) => [...previous, elem]);
+            setIsHunt(true);
+          }
         }
       });
     };
     selectedHunt();
-  }, [hunt]);
+  }, [level]);
 
   return (
     <>
