@@ -73,7 +73,7 @@ function HomePage() {
     reset();
   };
   return (
-    <div className=" w-screen min-h-[100vh] col-center">
+    <div className="w-screen min-h-[100vh] col-center">
       <div className="w-screen h-screen relative">
         <div className="bg-[url('https://wallpapercave.com/wp/wp7219130.jpg')] w-full h-full fixed"></div>
         <div className="w-full h-full fixed bg-[#00000058]"></div>
@@ -205,12 +205,12 @@ function HomePage() {
                   <input
                     type="text"
                     id="newCharacter"
-                    className="w-90 h-8 rounded-sm"
+                    className="w-90 h-8"
                     {...register("infoName")}
                   />
                   <button
                     type="submit"
-                    className="w-90 bg-yellow-400 h-8 rounded-sm"
+                    className="btn-yellow w-90 h-9"
                   >
                     Add character
                   </button>

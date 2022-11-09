@@ -42,10 +42,10 @@ function HomePage() {
           <p className="hidden sm:flex">Hello, {userName}</p>
           <Image
             className="rounded-xl"
-            loader={() => (photoURL ? photoURL : "")}
-            src={photoURL ? photoURL : ""}
+            loader={() => (photoURL ? photoURL : imageProfile)}
+            src={photoURL ? photoURL : imageProfile}
             unoptimized={true}
-            alt="nameUser"
+            alt={userName as string}
             width={50}
             height={50}
           />
