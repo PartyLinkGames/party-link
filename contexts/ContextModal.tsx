@@ -9,6 +9,8 @@ interface iModalProviderValues {
   setModalRegisterIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   modalLoginIsOpen?: boolean;
   setModalLoginIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalHuntingMarkIsOpen?: boolean;
+  setModalHuntingMarkIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ModalProvider = ({ children }: iModalProviderProps) => {
@@ -16,6 +18,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     useState<boolean>(false);
 
   const [modalLoginIsOpen, setModalLoginIsOpen] = useState<boolean>(false);
+  const [modalHuntingMarkIsOpen, setModalHuntingMarkIsOpen] =
+    useState<boolean>(false);
 
   return (
     <ModalContext.Provider
@@ -24,6 +28,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setModalRegisterIsOpen,
         modalLoginIsOpen,
         setModalLoginIsOpen,
+        modalHuntingMarkIsOpen,
+        setModalHuntingMarkIsOpen,
       }}
     >
       {children}

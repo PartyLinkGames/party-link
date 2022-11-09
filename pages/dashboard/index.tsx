@@ -40,6 +40,7 @@ function HomePage() {
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, {userName}</p>
+
           <Image
             className="rounded-xl"
             loader={() => (photoURL ? photoURL : imageProfile)}
@@ -49,6 +50,7 @@ function HomePage() {
             width={50}
             height={50}
           />
+
           <button
             className={!hideNavMobile ? "sm:hidden w-6 text-center" : "hidden"}
             onClick={(event) => {

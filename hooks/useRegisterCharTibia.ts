@@ -19,7 +19,9 @@ import { app, db } from "../firebase/config";
 import { instance } from "../services/api";
 
 export const useRegisterCharTibia = () => {
-  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [currentUser, setCurrentUser] = useState<
+    (object & { uid: string }) | null
+  >(null);
   const auth = getAuth(app);
   const database = getDatabase(app);
   useEffect(() => {

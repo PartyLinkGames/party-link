@@ -40,7 +40,7 @@ export interface iDungeon {
 export const useFetchHunts = () => {
   const [hunt, setHunts] = useState<iHunt[]>([]);
   const [loading, setLoading] = useState<boolean | null>(null);
-  const [ids, setIds] = useState<any>(null);
+  const [ids, setIds] = useState<string[] | null>(null);
   useEffect(() => {
     const fetchHunt = () => {
       const collectionRef = collection(db, "teste");
