@@ -61,7 +61,11 @@
   }
 
   button {
-    @apply cursor-pointer;
+    @apply cursor-pointer rounded-lg ;
+  }
+
+  input {
+    @apply w-full h-9 focus:outline-0 pr-px pl-1 placeholder:text-gray-600 focus:placeholder:text-gray-200 rounded-lg focus:border-none;
   }
 }
 
@@ -71,19 +75,28 @@
     @apply flex flex-col items-center;
   }
 
-  .btn_yellow {
-    @apply bg-yellow-400 w-full h-12 rounded-2xl font-bold text-xl max-w-[350px];
+  .delay {
+    @apply ease-in-out transition delay-300;
   }
+
+  .btn-yellow {
+    @apply bg-yellow-500 w-full h-10 font-bold text-xl text-gray-900 hover:bg-yellow-400 hover:text-primary;
+  }
+
   .logo {
     @apply text-yellow-400 font-bold;
   }
 
-  .main {
-    @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-center min-h-screen bg-primary;
+  .figure-icon {
+    @apply w-3/5 max-w-[230px] sm:max-w-none sm:w-60 delay absolute sm:hover:animate-pulse duration-200;
   }
 
-  .main_div {
-    @apply col-center my-8 gap-y-14 sm:ml-52 h-4/6 sm:pb-0 pb-5;
+  .main {
+    @apply col-center w-screen sm:flex-row-reverse sm:justify-center sm:items-start min-h-screen bg-primary;
+  }
+
+  .main-div {
+    @apply col-center mt-8 gap-y-6 sm:ml-52 h-4/6 sm:pb-0 pb-5 w-full;
   }
 
   .aside_desktop {
@@ -109,11 +122,11 @@
   /* Modal Login */
 
   .modal-contaneir {
-    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center transition duration-500 delay-150 z-50;
+    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center duration-500 delay z-50;
   }
 
   .modal-div-container {
-    @apply col-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 transition duration-500 delay-150 relative;
+    @apply col-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 duration-500 delay relative;
   }
   .modal-form-label {
     @apply self-start text-headline3 font-bold leading-[17.58px];
@@ -124,11 +137,9 @@
   }
 
   .modal-form-input {
-    @apply w-full h-9 bg-primary-ligth outline-0 rounded-lg pr-px pl-1 outline-none placeholder:text-gray-600 focus:placeholder:text-gray-200;
+    @apply bg-primary-ligth;
   }
-  .btn-yellow-submit {
-    @apply bg-yellow-400 w-full h-9 rounded-xl font-bold text-xl text-black;
-  }
+
   .form_mensage_alert {
     @apply text-rose-600 font-semibold text-[14px];
   }
@@ -151,10 +162,10 @@
   }
 
   .aside-div {
-    @apply relative left-0 z-50 sm:h-full bg-primary ease-in-out duration-300;
+    @apply relative left-0 z-50 sm:h-full bg-primary delay;
   }
   .aside-div-hidden {
-    @apply left-[-700%] absolute ease-in-out duration-300 h-full z-50;
+    @apply left-[-700%] absolute delay h-full z-50;
   }
 
   .aside-nav {
@@ -170,7 +181,7 @@
   }
 
   .section-mobile {
-    @apply col-center w-full sm:col-center sm:w-full  gap-4 pb-4 absolute top-0;
+    @apply col-center w-full sm:col-center sm:w-full sm:ml-10 gap-4 pb-4 absolute top-0;
   }
   .section-div {
     @apply col-center w-90 max-w-[1000px] gap-4 pt-4 rounded-lg justify-center h-full text-center text-white mt-14;

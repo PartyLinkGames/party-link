@@ -1,19 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { BsFillMoonFill, BsInstagram, BsCircleFill } from "react-icons/bs";
-import { FaSun } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs";
 
-import mainImg from "../assets/boysPlaying.png";
+import Image from "next/image";
+import Link from "next/link";
+
+import MonsterIcon from "../assets/MonsterIcon.svg";
+
 import ModalLogin from "../components/modalLogin/login";
 import ModalRegister from "../components/modalRegister";
+
 import { protectedRoutesUserLoged } from "../components/protectedRoutes/ProtectedRoutes";
-import { ModalContext, ModalProvider } from "../contexts/ContextModal";
+import { ModalContext } from "../contexts/ContextModal";
 
 function LandingPage() {
+  const [positionIcon, setPositionIcon] = useState("figure-icon");
   const {
     modalRegisterIsOpen,
     setModalRegisterIsOpen,
@@ -32,22 +34,60 @@ function LandingPage() {
   return (
     <>
       <main className="main">
-        <div className="main_div">
+        <div className="main-div">
           <header className="col-center gap-4">
             <p className="text-6xl logo">PartyLink</p>
             <p className="text-white text-base">Find your game duo</p>
           </header>
-          <Image alt="boys Playing" src={mainImg} className="sm:w-72" />
+          <figure className="w-full h-full flex justify-center items-center hover:animate-bounce">
+            <div
+              className="w-3/6 h-full sm:flex hidden"
+              onMouseEnter={(event) => {
+                event.preventDefault();
+                setPositionIcon("figure-icon left-[60vw]");
+              }}
+              onMouseLeave={(event) => {
+                event.preventDefault();
+                setPositionIcon("figure-icon");
+              }}
+            ></div>
+
+            <div
+              className="w-3/6 h-full sm:flex hidden"
+              onMouseEnter={(event) => {
+                event.preventDefault();
+                setPositionIcon("figure-icon right-[50vw]");
+              }}
+              onMouseLeave={(event) => {
+                event.preventDefault();
+                setPositionIcon("figure-icon");
+              }}
+            ></div>
+
+            <Image
+              alt="boys Playing"
+              src={MonsterIcon}
+              className={positionIcon}
+            />
+          </figure>
         </div>
-        <aside className={modalRegisterIsOpen ? "aside-dark z-0" : modalLoginIsOpen ? "aside-dark z-0" : "aside-dark z-20"}>
+        <aside
+          className={
+            modalRegisterIsOpen
+              ? "aside-dark z-0"
+              : modalLoginIsOpen
+              ? "aside-dark z-0"
+              : "aside-dark z-20"
+          }
+        >
           <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">
             PartyLink
           </p>
-          <nav className="col-center w-4/5 gap-8 sm:gap-12 sm:mt-20">
-            <button className="btn_yellow" onClick={modalLoginOpen}>
+          <nav className="col-center w-4/5 gap-8 sm:gap-8 sm:mt-20">
+            <button className="btn-yellow h-11" onClick={modalLoginOpen}>
               Login
             </button>
-            <button className="btn_yellow" onClick={handleModalOpen}>
+            <button className="btn-yellow h-11" onClick={handleModalOpen}>
               Register
             </button>
           </nav>

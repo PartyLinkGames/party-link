@@ -126,7 +126,7 @@ export default function ModalLogin() {
             </button>
             <span className="absolute ml-10  text-sm">Remember me</span>
           </label>
-          <button type="submit" className="btn-yellow-submit mb-8 mt-2">
+          <button type="submit" className="btn-yellow mb-8 mt-2">
             Login
           </button>
         </form>
