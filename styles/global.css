@@ -57,7 +57,7 @@
   }
 
   #__next {
-    @apply w-screen h-screen col-center bg-primary;
+    @apply w-screen h-screen col-center;
   }
 
   button {

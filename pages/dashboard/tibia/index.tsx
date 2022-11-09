@@ -23,20 +23,23 @@ import { useRegisterCharTibia } from "../../../hooks/useRegisterCharTibia";
 import { useAuthentication } from "../../../hooks/useAuthentication";
 import { UserContext } from "../../../contexts/ContextUser";
 import HuntCard from "../../../components/cardHunt";
+import { useGetAccountInfo } from "../../../hooks/useGetAccountInfo";
 
 function HomePage() {
   const { userName, userUid } = useGetInfoUser();
-  // const [characters, setCaracter] = useState<any>(null);
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [character, setCharacter] = useState("");
+  const [character, setCharacter] = useState(false);
   const [nickName, setNickName] = useState("");
   const { registerChar, currentUser } = useRegisterCharTibia();
   const { logout, users } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
   const { user } = useContext(UserContext);
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
+
   useEffect(() => {
     const getBonecos = () => {
       getCharCollection(user?.uid);
@@ -226,13 +229,20 @@ function HomePage() {
                 >
                   {charsCollection &&
                     charsCollection?.map((element: any, i: number) => (
-                      <LiCharacters name={element} key={i} />
+                      <LiCharacters
+                        name={element}
+                        key={i}
+                        onClick={(e: any) => {
+                          setCharacter(true);
+                          getAccountInfo(e.target.innerText);
+                        }}
+                      />
                     ))}
                 </ul>
               </div>
               <div
                 className={
-                  character == ""
+                  character == false
                     ? "hidden"
                     : "flex sm:w-[32%] items-center bg-[#00000058] h-36 mt-5 sm:h-full sm:mt-0"
                 }
@@ -246,9 +256,9 @@ function HomePage() {
                 </figure>
                 <div className="flex flex-col items-end justify-between w-3/6 mr-3 text-white h-80">
                   <div className="flex flex-col items-end gap-2">
-                    <p>Name: Tiu Chiko</p>
-                    <p>Class: Sorcerer</p>
-                    <p>Level: 130</p>
+                    <p>Name: {charName}</p>
+                    <p>Class: {charVocation}</p>
+                    <p>Level: {charLevel}</p>
                   </div>
 
                   <button className="bg-yellow-400 w-32 h-7 rounded-sm text-gray-900 font-bold">
