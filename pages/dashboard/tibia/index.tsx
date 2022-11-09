@@ -25,6 +25,7 @@ import { UserContext } from "../../../contexts/ContextUser";
 import HuntCard from "../../../components/cardHunt";
 import { useGetAccountInfo } from "../../../hooks/useGetAccountInfo";
 import { useDeleteCharTibia } from "../../../hooks/useDeleteCharTibia";
+import { protectedRoutesUserOff } from "../../../components/protectedRoutes/ProtectedRoutes";
 
 function HomePage() {
   const { userName, userUid } = useGetInfoUser();
@@ -283,4 +284,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default protectedRoutesUserOff(HomePage);
