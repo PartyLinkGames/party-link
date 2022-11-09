@@ -24,6 +24,7 @@ import { useAuthentication } from "../../../hooks/useAuthentication";
 import { UserContext } from "../../../contexts/ContextUser";
 import HuntCard from "../../../components/cardHunt";
 import { useGetAccountInfo } from "../../../hooks/useGetAccountInfo";
+import { useDeleteCharTibia } from "../../../hooks/useDeleteCharTibia";
 
 function HomePage() {
   const { userName, userUid } = useGetInfoUser();
@@ -39,7 +40,7 @@ function HomePage() {
   const { user } = useContext(UserContext);
   const { getAccountInfo, charName, charLevel, charVocation } =
     useGetAccountInfo();
-
+  const { deleteChar } = useDeleteCharTibia();
   useEffect(() => {
     const getBonecos = () => {
       getCharCollection(user?.uid);
@@ -48,7 +49,9 @@ function HomePage() {
   }, []);
   const handleCreateChracter = (e: any) => {
     e.preventDefault();
+
     registerChar(currentUser.uid, nickName);
+    setNickName("");
   };
   return (
     <div className=" w-screen min-h-[100vh] col-center">
@@ -261,7 +264,13 @@ function HomePage() {
                     <p>Level: {charLevel}</p>
                   </div>
 
-                  <button className="bg-yellow-400 w-32 h-7 rounded-sm text-gray-900 font-bold">
+                  <button
+                    className="bg-yellow-400 w-32 h-7 rounded-sm text-gray-900 font-bold"
+                    onClick={() => {
+                      setCharacter(false);
+                      deleteChar(user?.uid, charName);
+                    }}
+                  >
                     Delete
                   </button>
                 </div>
