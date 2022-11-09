@@ -267,7 +267,10 @@ function HomePage() {
                 </div>
               </div>
             </header>
-            <HuntCard name="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full" />
+            <HuntCard
+              level={charLevel ? charLevel : null}
+              name="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full"
+            />
           </div>
         </section>
       </main>
