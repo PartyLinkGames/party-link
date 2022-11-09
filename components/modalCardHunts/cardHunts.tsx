@@ -3,16 +3,11 @@ import { iHunt } from "../../hooks/useFetchHunts";
 
 interface iCardHunts {
   data: iHunt;
-  key: number;
 }
 
-export function CardHunts({ data, key }: iCardHunts) {
-  console.log(data);
+export function CardHunts({ data }: iCardHunts) {
   return (
-    <li
-      key={key}
-      className="bg-gradient-to-b from-backGroundGradient1 to-backGroundGradient2 translate-[z-0] rounded-lg list-none hover:scale-[1.02]  md:transform-none ease-in-out duration-200 "
-    >
+    <li className="bg-gradient-to-b from-backGroundGradient1 to-backGroundGradient2 translate-[z-0] rounded-lg list-none hover:scale-[1.02]  md:transform-none ease-in-out duration-200 ">
       <Image
         className="rounded-t-lg"
         width={330}

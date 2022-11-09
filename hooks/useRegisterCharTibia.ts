@@ -30,7 +30,6 @@ export const useRegisterCharTibia = () => {
   const registerChar = async (uid: string, nickName: string) => {
     const data = await getDoc(doc(db, "users", uid));
     const chars = data.data();
-    console.log(chars?.nickName);
     if (chars?.nickName?.length > 0) {
       updateDoc(doc(db, "users", uid), {
         nickName: arrayUnion(nickName),
@@ -40,11 +39,8 @@ export const useRegisterCharTibia = () => {
         setDoc(doc(db, "users", uid), {
           nickName: arrayUnion(nickName),
         });
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     }
-    console.log();
   };
 
   return {
