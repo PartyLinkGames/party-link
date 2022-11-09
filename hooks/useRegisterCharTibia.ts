@@ -36,12 +36,6 @@ export const useRegisterCharTibia = () => {
       if (response.data.characters.character.name !== "") {
         const data = await getDoc(doc(db, "users", uid));
         const chars = data.data();
-        // console.log(
-        //   query(
-        //     collection(db, "users"),
-        //     where("nickName", "array-contains", nickName)
-        //   )
-        // );
         if (chars?.nickName)
           if (chars?.nickName?.length > 0) {
             updateDoc(doc(db, "users", uid), {
