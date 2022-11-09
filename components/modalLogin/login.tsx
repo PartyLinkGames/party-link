@@ -4,9 +4,12 @@ import Image from "next/image";
 import * as yup from "yup";
 
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { AiOutlineMail } from "react-icons/ai";
+import { IoClose } from "react-icons/io5";
 import { VscLock } from "react-icons/vsc";
 import { useContext, useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { ILogin } from "./interface";
 import { ModalContext } from "../../contexts/ContextModal";
@@ -53,26 +56,25 @@ export default function ModalLogin() {
 
   return (
     <div
-      style={{
-        transition: "0.5s",
-        opacity: modalLoginIsOpen ? "1" : "0",
-        pointerEvents: modalLoginIsOpen ? "all" : "none",
-      }}
-      className="h-screen w-full bg-background-color-cloudy fixed z-1 flex px-5 justify-center items-center"
+      className={
+        modalLoginIsOpen
+          ? "modal-contaneir opacity-100 pointer-events-auto"
+          : "modal-contaneir opacity-0 pointer-events-none"
+      }
     >
       <div
-        style={{
-          transition: "0.5s ease-in-out",
-          transform: modalLoginIsOpen ? "translateY(0%)" : "translateY(-200%)",
-        }}
-        className="flex flex-col items-cente/ max-w-lg w-full z-10  text-white m-auto bg-primary-dark rounded-3xl pb-10"
+        className={
+          modalLoginIsOpen
+            ? "modal-div-container translate-y-0"
+            : "modal-div-container translate-y-[-200%]"
+        }
       >
-        <span
-          className="text-end mr-4 mt-4 relative cursor-pointer"
+        <button
+          className="text-end mr-4 mt-4 absolute right-2 text-2xl cursor-pointer"
           onClick={handleModalClose}
         >
-          X
-        </span>
+          <IoClose />
+        </button>
         <div className="flex items-center justify-center flex-col mt-4">
           <Image alt="monster icon" src={MonsterIcon} />
           <h1 className="sm:flex sm:h-12 text-4xl logo mt-10">PartyLink</h1>
@@ -81,75 +83,60 @@ export default function ModalLogin() {
           </span>
         </div>
         <form
-          action=""
-          className="flex flex-col items-center m-auto gap-3 mt-5"
+          className="flex flex-col w-[80%] gap-3 mt-5"
           onSubmit={handleSubmit(onSubmitFunctionLogin)}
         >
-          <label
-            className="self-start text-headline3 font-bold leading-[17.58px]"
-            htmlFor="email"
-          >
-            E-mail adress:
-          </label>
-          <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
+          <label htmlFor="email">E-mail adress:</label>
+          <div className="modal-form-div-input">
             <AiOutlineMail className="w-6 h-8" />
             <input
-              className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
+              className="modal-form-input"
               type={"text"}
               {...register("email")}
             />
           </div>
-          <span className="font-normal text-[9.5px]">
+          <p className="form_mensage_alert">
             {" "}
             {errors.email?.message}
             {""}
-          </span>
-          <label
-            className="self-start text-headline3 font-bold leading-[17.58px]"
-            htmlFor="password"
-          >
+          </p>
+          <label className="mt-2" htmlFor="password">
             Your password:
           </label>
-          <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
+          <div className="modal-form-div-input">
             <VscLock className="w-6 h-8" />
             <input
-              className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
+              className="modal-form-input"
               type={"password"}
               {...register("password")}
             />
           </div>
           <span className="font-normal text-[9.5px]">
-            {" "}
-            {errors.password?.message}{" "}
+            {errors.password?.message}
           </span>
           <label
-            className="w-[25px] h-[21px] bg-primary-ligth rounded-lg flex gap- 10 itens-center self-start align-middle "
+            className="w-[25px] h-[21px] bg-primary-ligth rounded-lg flex gap- 10 itens-center self-start align-middle"
             htmlFor=""
           >
             <button
-              className="w-full flex items-center justify-center"
+              className="w-full flex items-center justify-center border-indigo-500/0 hover:border-yellow-400/100 border-[2px] border-solid rounded-lg"
               onClick={toRememberFunction}
             >
-              {" "}
-              {check ? <Image alt="monster icon" src={checkIcon} /> : ""}{" "}
-            </button>{" "}
+              {check ? <Image alt="monster icon" src={checkIcon} /> : ""}
+            </button>
             <span className="absolute ml-10  text-sm">Remember me</span>
           </label>
-          <button
-            type="submit"
-            className="bg-yellow-400 w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
-          >
-            {" "}
-            login{" "}
+          <button type="submit" className="btn-yellow-submit mb-8 mt-2">
+            Login
           </button>
         </form>
         <div className="flex items-center justify-center flex-col gap-4">
-          <button className="text-headline text-textPrimary underline cursor-pointer">
+          <button className="text-[14px] text-textPrimary underline cursor-pointer">
             Forgot your password?
           </button>
-          <span className="text-headline text-textPrimary ">
+          <span className="text-sm text-textPrimary text-center">
             Dont have an account?{" "}
-            <button className="text-headline text-textPrimary underline cursor-pointer">
+            <button className="text-sm text-textPrimary underline cursor-pointer">
               Create your own!
             </button>
           </span>

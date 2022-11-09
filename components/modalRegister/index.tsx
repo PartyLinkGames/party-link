@@ -7,7 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { AiOutlineMail } from "react-icons/ai";
-import { IoPersonOutline } from "react-icons/io5";
+import { IoPersonOutline, IoClose } from "react-icons/io5";
+
 import { VscLock } from "react-icons/vsc";
 import { useContext, useRef } from "react";
 import { ModalContext } from "../../contexts/ContextModal";
@@ -56,29 +57,27 @@ export default function ModalRegister() {
 
   return (
     <div
-      className="h-screen w-full bg-background-color-cloudy px-5 flex fixed z-20"
-      style={{
-        transition: "0.5s",
-        opacity: modalRegisterIsOpen ? "1" : "0",
-        pointerEvents: modalRegisterIsOpen ? "all" : "none",
-      }}
+      className={
+        modalRegisterIsOpen
+          ? "modal-contaneir opacity-100 pointer-events-auto"
+          : "modal-contaneir opacity-0 pointer-events-none"
+      }
     >
       <div
-        className="flex flex-col w-full max-w-sm z-10 m-auto text-white bg-primary-dark rounded-3xl"
-        style={{
-          transition: "0.5s ease-in-out",
-          transform: modalRegisterIsOpen
-            ? "translateY(0%)"
-            : "translateY(-200%)",
-        }}
+        className={
+          modalRegisterIsOpen
+            ? "modal-div-container  translate-y-0"
+            : "modal-div-container translate-y-[-200%]"
+        }
       >
-        <span
-          className="text-end mr-4 mt-4 relative cursor-pointer"
+        
+        <button
+          className="text-end mr-4 mt-4 absolute right-2 text-2xl cursor-pointer"
           onClick={handleModalClose}
         >
-          X
-        </span>
-        <div className="content flex flex-col items-center gap-3.5">
+          <IoClose />
+        </button>
+        <div className="content flex flex-col items-center gap-3.5 w-full h-full pt-3">
           <Image alt="monster icon" src={MonsterIcon} />
 
           <h1 className="text-yellow-400 font-extrabold text-xl leading-6">
@@ -90,57 +89,53 @@ export default function ModalRegister() {
             className="flex flex-col gap-4 w-4/5"
             onSubmit={handleSubmit(registerUser)}
           >
-            <label htmlFor="email">Your email :</label>
+            <label htmlFor="email" className="mt-5">
+              Your email :
+            </label>
             <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <AiOutlineMail className="w-6 h-8" />
               <input
                 type="email"
-                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="modal-form-input"
                 {...register("email")}
               />
             </div>
-            <span className="text-rose-600 font-bold text-base">
-              {errors.email?.message}
-            </span>
+            <p className="form_mensage_alert">{errors.email?.message}</p>
 
             <label htmlFor="name">Your name :</label>
             <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <IoPersonOutline className="w-6 h-8" />
               <input
                 type="text"
-                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="modal-form-input"
                 {...register("name")}
               />
             </div>
-            <span className="text-rose-600 font-bold text-base">
-              {errors.name?.message}
-            </span>
+            <p className="form_mensage_alert">{errors.name?.message}</p>
 
             <label htmlFor="password">Your password :</label>
             <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <VscLock className="w-6 h-8" />
               <input
                 type="password"
-                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="modal-form-input"
                 {...register("password")}
               />
             </div>
-            <span className="text-rose-600 font-bold text-base">
-              {errors.password?.message}
-            </span>
+            <p className="form_mensage_alert">{errors.password?.message}</p>
 
             <label htmlFor="confirmPassword">Confirm password : </label>
             <div className=" flex bg-primary-ligth rounded-lg pl-2.5">
               <VscLock className="w-6 h-8" />
               <input
                 type="password"
-                className="w-full h-8 bg-primary-ligth outline-0 rounded-lg pr-px pl-1"
+                className="modal-form-input"
                 {...register("confirmPassword")}
               />
             </div>
-            <span className="text-rose-600 font-bold text-base">
+            <p className="form_mensage_alert">
               {errors.confirmPassword?.message}
-            </span>
+            </p>
             {loading && (
               <button
                 type="submit"
@@ -151,10 +146,7 @@ export default function ModalRegister() {
               </button>
             )}
             {!loading && (
-              <button
-                type="submit"
-                className="bg-yellow-400 w-full h-8 rounded-2xl font-bold text-xl max-w-[350px] text-black mb-7 mt-2"
-              >
+              <button type="submit" className="btn-yellow-submit">
                 Register
               </button>
             )}
