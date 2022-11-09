@@ -6,7 +6,7 @@ function ModalEditUser() {
   const { updateCurrentProfile } = useEditProfile();
   const [newUserName, setNewUserName] = useState<string>("");
   const [newPhoto, setNewPhoto] = useState<string>("");
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     updateCurrentProfile(newUserName, newPhoto);
   };
