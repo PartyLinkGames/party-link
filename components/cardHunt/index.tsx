@@ -8,6 +8,8 @@ interface iClassName {
   name: string;
   level: number | null;
   isPlayer: boolean;
+  setChoseHuntId: any;
+  handleOpenModalMarkingHunt: any;
 }
 export interface iHuntObjNew {
   dungeon: iDungeon;
@@ -30,7 +32,13 @@ export interface iHuntObjNew {
   user: object;
   idFB: string;
 }
-export default function HuntCard({ name, level, isPlayer }: iClassName) {
+export default function HuntCard({
+  name,
+  level,
+  isPlayer,
+  setChoseHuntId,
+  handleOpenModalMarkingHunt,
+}: iClassName) {
   const [selectHunt, setSelectHunt] = useState<iHuntObjNew[]>([]);
   const [isHunt, setIsHunt] = useState<boolean>(false);
 
@@ -81,7 +89,12 @@ export default function HuntCard({ name, level, isPlayer }: iClassName) {
       {isHunt ? (
         <ul className={name}>
           {selectHunt.map((elem, index) => (
-            <CardHunts data={elem} key={index} />
+            <CardHunts
+              data={elem}
+              key={index}
+              setChoseHuntId={setChoseHuntId}
+              handleOpenModalMarkingHunt={handleOpenModalMarkingHunt}
+            />
           ))}
         </ul>
       ) : null}
