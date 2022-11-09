@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 
+import { useForm } from "react-hook-form";
+
 import { IoHome, IoClose } from "react-icons/io5";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { HiUserGroup } from "react-icons/hi";
@@ -22,29 +24,53 @@ import { useRegisterCharTibia } from "../../../hooks/useRegisterCharTibia";
 import { useAuthentication } from "../../../hooks/useAuthentication";
 import { UserContext } from "../../../contexts/ContextUser";
 import HuntCard from "../../../components/cardHunt";
+import { useGetAccountInfo } from "../../../hooks/useGetAccountInfo";
+import { useDeleteCharTibia } from "../../../hooks/useDeleteCharTibia";
+import { protectedRoutesUserOff } from "../../../components/protectedRoutes/ProtectedRoutes";
+
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup.object({
+  infoName: yup.string().required(),
+});
+interface iValueNick {
+  infoName: string;
+  value?: string;
+}
 
 function HomePage() {
+  const { user } = useContext(UserContext);
+
   const { userName, userUid } = useGetInfoUser();
-  // const [characters, setCaracter] = useState<any>(null);
+  const { logout } = useAuthentication();
+  const { charsCollection, getCharCollection } = useGetCharCollection();
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
+
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [character, setCharacter] = useState("");
-  const [nickName, setNickName] = useState("");
+  const [character, setCharacter] = useState(false);
+
   const { registerChar, currentUser } = useRegisterCharTibia();
-  const { logout, users } = useAuthentication();
-  const { charsCollection, getCharCollection } = useGetCharCollection();
-  const { user } = useContext(UserContext);
+  const { deleteChar } = useDeleteCharTibia();
+
   useEffect(() => {
     const getBonecos = () => {
       getCharCollection(user?.uid);
     };
     getBonecos();
   }, []);
-  const handleCreateChracter = (e: any) => {
-    e.preventDefault();
-    registerChar(currentUser.uid, nickName);
+
+  const { register, handleSubmit, reset } = useForm<iValueNick>({
+    resolver: yupResolver(schema),
+  });
+
+  const handleCreateChracter = (value: iValueNick) => {
+    registerChar(currentUser.uid, value.infoName.toLowerCase());
+    reset();
   };
   return (
     <div className=" w-screen min-h-[100vh] col-center">
@@ -139,7 +165,7 @@ function HomePage() {
         <section className="section-mobile h-full">
           <div className="w-90 h-full mt-24 sm:mt-40 col-center gap-10 max-w-[1400px]">
             <header className="section-div-header">
-              <form className="col-center sm:w-[32%] gap-3 justify-center bg-[#00000058] py-2 sm:h-full">
+              <div className="col-center sm:w-[32%] gap-3 justify-center bg-[#00000058] py-2 sm:h-full">
                 <div className="flex items-center justify-between w-90">
                   <label
                     htmlFor="newCharacter"
@@ -168,7 +194,8 @@ function HomePage() {
                     <IoIosArrowUp />
                   </button>
                 </div>
-                <div
+                <form
+                  onSubmit={handleSubmit(handleCreateChracter)}
                   className={
                     showForm
                       ? "section-div-header-form-div"
@@ -179,18 +206,16 @@ function HomePage() {
                     type="text"
                     id="newCharacter"
                     className="w-90 h-8 rounded-sm"
-                    value={nickName}
-                    onChange={(e) => setNickName(e.target.value)}
+                    {...register("infoName")}
                   />
                   <button
                     type="submit"
                     className="w-90 bg-yellow-400 h-8 rounded-sm"
-                    onClick={handleCreateChracter}
                   >
                     Add character
                   </button>
-                </div>
-              </form>
+                </form>
+              </div>
               <div className="sm:w-[32%] col-center justify-center bg-[#00000058] mt-5 sm:mt-0 relative py-2 sm:py-0 sm:h-full">
                 <div className="flex items-center justify-between w-90">
                   <p className="font-bold text-lg text-yellow-400">
@@ -225,13 +250,20 @@ function HomePage() {
                 >
                   {charsCollection &&
                     charsCollection?.map((element: any, i: number) => (
-                      <LiCharacters name={element} key={i} />
+                      <LiCharacters
+                        name={element}
+                        key={i}
+                        onClick={(e: any) => {
+                          setCharacter(true);
+                          getAccountInfo(e.target.innerText);
+                        }}
+                      />
                     ))}
                 </ul>
               </div>
               <div
                 className={
-                  character == ""
+                  character == false
                     ? "hidden"
                     : "flex sm:w-[32%] items-center bg-[#00000058] h-36 mt-5 sm:h-full sm:mt-0"
                 }
@@ -245,18 +277,28 @@ function HomePage() {
                 </figure>
                 <div className="flex flex-col items-end justify-between w-3/6 mr-3 text-white h-80">
                   <div className="flex flex-col items-end gap-2">
-                    <p>Name: Tiu Chiko</p>
-                    <p>Class: Sorcerer</p>
-                    <p>Level: 130</p>
+                    <p>Name: {charName}</p>
+                    <p>Class: {charVocation}</p>
+                    <p>Level: {charLevel}</p>
                   </div>
 
-                  <button className="bg-yellow-400 w-32 h-7 rounded-sm text-gray-900 font-bold">
+                  <button
+                    className="bg-yellow-400 w-32 h-7 rounded-sm text-gray-900 font-bold"
+                    onClick={() => {
+                      setCharacter(false);
+                      deleteChar(user?.uid, charName);
+                    }}
+                  >
                     Delete
                   </button>
                 </div>
               </div>
             </header>
-            <HuntCard name="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full" />
+            <HuntCard
+              isPlayer={character}
+              level={charLevel ? charLevel : null}
+              name="col-center sm:flex-row sm:flex-wrap sm:justify-center gap-4 w-full"
+            />
           </div>
         </section>
       </main>
@@ -264,4 +306,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default protectedRoutesUserOff(HomePage);

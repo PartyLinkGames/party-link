@@ -11,9 +11,12 @@ import {
   where,
   getDocs,
   getDoc,
+  query,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { app, db } from "../firebase/config";
+import { instance } from "../services/api";
 
 export const useRegisterCharTibia = () => {
   const [currentUser, setCurrentUser] = useState<any>(null);
@@ -28,19 +31,30 @@ export const useRegisterCharTibia = () => {
     getUserUid();
   });
   const registerChar = async (uid: string, nickName: string) => {
-    const data = await getDoc(doc(db, "users", uid));
-    const chars = data.data();
-    if (chars?.nickName?.length > 0) {
-      updateDoc(doc(db, "users", uid), {
-        nickName: arrayUnion(nickName),
-      });
-    } else {
-      try {
-        setDoc(doc(db, "users", uid), {
-          nickName: arrayUnion(nickName),
+    try {
+      const response = await instance(`v3/character/${nickName}`);
+      if (response.data.characters.character.name !== "") {
+        const data = await getDoc(doc(db, "users", uid));
+        const chars = data.data();
+        if (chars?.nickName)
+          if (chars?.nickName?.length > 0) {
+            updateDoc(doc(db, "users", uid), {
+              nickName: arrayUnion(nickName),
+            });
+          } else {
+            try {
+              setDoc(doc(db, "users", uid), {
+                nickName: arrayUnion(nickName),
+              });
+            } catch (error) {}
+          }
+      } else {
+        toast.error("Account does not exist", {
+          theme: "dark",
+          autoClose: 2000,
         });
-      } catch (error) {}
-    }
+      }
+    } catch (error) {}
   };
 
   return {
