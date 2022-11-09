@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import { IoHome, IoClose } from "react-icons/io5";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -15,14 +15,37 @@ import Image from "next/image";
 import { useState } from "react";
 import { LiCharacters } from "../../../components/LiCharacter";
 import { CardsTeamTibia } from "../../../components/CardsTeamTibia";
+import {
+  useGetCharCollection,
+  useGetInfoUser,
+} from "../../../hooks/useGetUserInfo";
+import { useRegisterCharTibia } from "../../../hooks/useRegisterCharTibia";
+import { useAuthentication } from "../../../hooks/useAuthentication";
+import { UserContext } from "../../../contexts/ContextUser";
 
 function HomePage() {
+  const { userName, userUid } = useGetInfoUser();
+  // const [characters, setCaracter] = useState<any>(null);
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [character, setCharacter] = useState("");
-
+  const [nickName, setNickName] = useState("");
+  const { registerChar, currentUser } = useRegisterCharTibia();
+  const { logout, users } = useAuthentication();
+  const { charsCollection, getCharCollection } = useGetCharCollection();
+  const { user } = useContext(UserContext);
+  useEffect(() => {
+    const getBonecos = () => {
+      getCharCollection(user?.uid);
+    };
+    getBonecos();
+  }, []);
+  const handleCreateChracter = (e: any) => {
+    e.preventDefault();
+    registerChar(currentUser.uid, nickName);
+  };
   return (
     <div className=" w-screen min-h-[100vh] col-center">
       <div className="w-screen h-screen relative">
@@ -33,7 +56,7 @@ function HomePage() {
       <header className="fixed z-40 w-screen bg-primary flex items-center justify-between py-3 text-white ">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
-          <p className="hidden sm:flex">Hello, nameUser</p>
+          <p className="hidden sm:flex">Hello, {userName}</p>
           <Image src={imageProfile} alt="nameUser" />
           <button
             className={!hideNavMobile ? "sm:hidden w-6 text-center" : "hidden"}
@@ -105,7 +128,7 @@ function HomePage() {
                 <BsFillPersonFill className="text-2xl" />
                 <p>Profile</p>
               </button>
-              <button className="aside-nav-logout">
+              <button className="aside-nav-logout" onClick={logout}>
                 <FiLogOut className="text-2xl" />
                 <p>Logout</p>
               </button>
@@ -156,10 +179,13 @@ function HomePage() {
                     type="text"
                     id="newCharacter"
                     className="w-90 h-8 rounded-sm"
+                    value={nickName}
+                    onChange={(e) => setNickName(e.target.value)}
                   />
                   <button
                     type="submit"
                     className="w-90 bg-yellow-400 h-8 rounded-sm"
+                    onClick={handleCreateChracter}
                   >
                     Add character
                   </button>
@@ -197,7 +223,10 @@ function HomePage() {
                       : "hidden sm:section-div-header-choose-ul"
                   }
                 >
-                  <LiCharacters name="Gindri" />
+                  {charsCollection &&
+                    charsCollection?.map((element: any, i: number) => (
+                      <LiCharacters name={element} key={i} />
+                    ))}
                 </ul>
               </div>
               <div

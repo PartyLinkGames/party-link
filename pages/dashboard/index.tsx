@@ -29,7 +29,7 @@ function HomePage() {
   const [asideClass, setAsideClass] = useState(
     "absolute top-[-200%] ease-in-out duration-500 w-full sm:aside-home"
   );
-  const { logout, users } = useAuthentication();
+  const { logout } = useAuthentication();
   const { userName } = useGetInfoUser();
   useEffect(() => {
     if (hideNavDesktop) {
@@ -147,7 +147,7 @@ function HomePage() {
             </h1>
 
             <div className="section-div-games">
-              <Link href={""}>
+              <Link href={"dashboard/tibia"}>
                 <Image
                   src={tibiaImage}
                   alt="Tibia Image"
