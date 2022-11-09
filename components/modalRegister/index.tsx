@@ -145,7 +145,7 @@ export default function ModalRegister() {
               </button>
             )}
             {!loading && (
-              <button type="submit" className="btn-yellow-submit">
+              <button type="submit" className="btn-yellow">
                 Register
               </button>
             )}
