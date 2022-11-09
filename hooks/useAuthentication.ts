@@ -19,7 +19,7 @@ export const useAuthentication = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<null | string>(null);
-  const [users, setUsers] = useState<any>([]);
+  const [users, setUsers] = useState<object>([]);
   const router = useRouter();
 
   const createUser = async (data: iRegisterForm) => {

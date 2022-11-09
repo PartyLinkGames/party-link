@@ -77,8 +77,10 @@ function HomePage() {
   });
 
   const handleCreateChracter = (value: iValueNick) => {
-    registerChar(currentUser.uid, value.infoName.toLowerCase());
-    reset();
+    if (currentUser) {
+      registerChar(currentUser.uid, value.infoName.toLowerCase());
+      reset();
+    }
   };
   return (
     <div className=" w-screen min-h-[100vh] col-center">
@@ -257,11 +259,15 @@ function HomePage() {
                   }
                 >
                   {charsCollection &&
-                    charsCollection?.map((element: any, i: number) => (
+                    charsCollection?.map((element: string, i: number) => (
                       <LiCharacters
                         name={element}
                         key={i}
-                        onClick={(e: any) => {
+                        onClick={(
+                          e: Event & {
+                            target: HTMLButtonElement;
+                          }
+                        ) => {
                           setCharacter(true);
                           getAccountInfo(e.target.innerText);
                         }}

@@ -25,7 +25,7 @@ export const useGetInfoUser = (uid?: string) => {
   };
 };
 export const useGetCharCollection = () => {
-  const [charsCollection, setcharsCollection] = useState<any>([]);
+  const [charsCollection, setcharsCollection] = useState<[]>([]);
   const getCharCollection = async (uid: string | undefined) => {
     if (uid) {
       const unsub = onSnapshot(doc(db, "users", uid), (doc) => {

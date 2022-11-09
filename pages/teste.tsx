@@ -9,12 +9,20 @@ const teste = (props: Props) => {
   const { hunt } = useFetchHunts();
   const { currentUser, registerChar } = useRegisterCharTibia();
   const [nickName, setNickName] = useState("");
-  const [date, setDate] = useState("");
+
+
   const [hour, setHour] = useState("");
   const { scheduleHunt } = useScheduleHunt();
   const handleSubmmit = (e: any) => {
     e.preventDefault();
     scheduleHunt(nickName, "0fUKPCpezFkYrFipPv8P", date, hour);
+
+  const [date, setDte] = useState("");
+  const handleSubmmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (currentUser) {
+      registerChar(currentUser.uid, nickName);
+    }
   };
   // useEffect(() => {
   //   scheduleHunt("teste", "0fUKPCpezFkYrFipPv8P", "12/12/2022", "02:00");
