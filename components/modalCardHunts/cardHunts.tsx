@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { iHunt } from "../../hooks/useFetchHunts";
+
+import { iHuntObjNew } from "../cardHunt";
 
 interface iCardHunts {
-  data: iHunt;
+  data: iHuntObjNew;
 }
 
 export function CardHunts({ data }: iCardHunts) {
@@ -53,7 +54,10 @@ export function CardHunts({ data }: iCardHunts) {
               </span>
             </h3>
           </div>
-          <button className="self-end bg-backGroundButton h-[28px] w-[89px] rounded-lg font-bold text-[13px] hover:bg-opacity-[0.9] ">
+          <button
+            className="self-end bg-backGroundButton h-[28px] w-[89px] rounded-lg font-bold text-[13px] hover:bg-opacity-[0.9]"
+            id={data.idFB}
+          >
             More info
           </button>
         </div>

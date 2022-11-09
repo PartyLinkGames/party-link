@@ -6,12 +6,14 @@ import { doc, onSnapshot } from "firebase/firestore";
 export const useGetInfoUser = (uid?: string) => {
   const [userName, setUserName] = useState<string | null | undefined>(null);
   const [userUid, setUserUid] = useState<string | null | undefined>(null);
+  const [photoURL, setPhotoURL] = useState<string | null | undefined>(null);
   const auth = getAuth(app);
   useEffect(() => {
     const getUserName = () => {
       onAuthStateChanged(auth, (currentUser) => {
         setUserName(currentUser?.displayName);
         setUserUid(currentUser?.uid);
+        setPhotoURL(currentUser?.photoURL);
       });
     };
     getUserName();
@@ -19,6 +21,7 @@ export const useGetInfoUser = (uid?: string) => {
   return {
     userName,
     userUid,
+    photoURL,
   };
 };
 export const useGetCharCollection = () => {

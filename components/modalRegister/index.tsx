@@ -10,7 +10,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { IoPersonOutline, IoClose } from "react-icons/io5";
 
 import { VscLock } from "react-icons/vsc";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { ModalContext } from "../../contexts/ContextModal";
 import { useAuthentication } from "../../hooks/useAuthentication";
 export interface iRegisterForm {
@@ -70,7 +70,6 @@ export default function ModalRegister() {
             : "modal-div-container translate-y-[-200%]"
         }
       >
-        
         <button
           className="text-end mr-4 mt-4 absolute right-2 text-2xl cursor-pointer"
           onClick={handleModalClose}

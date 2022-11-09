@@ -57,7 +57,7 @@
   }
 
   #__next {
-    @apply w-screen h-screen col-center bg-primary;
+    @apply w-screen h-screen col-center;
   }
 
   button {
@@ -109,22 +109,22 @@
   /* Modal Login */
 
   .modal-contaneir {
-    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center transition duration-500 delay-150 z-40;
+    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center transition duration-500 delay-150 z-50;
   }
 
   .modal-div-container {
-    @apply flex flex-col items-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 transition duration-500 delay-150 relative;
+    @apply col-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 transition duration-500 delay-150 relative;
   }
   .modal-form-label {
     @apply self-start text-headline3 font-bold leading-[17.58px];
   }
 
   .modal-form-div-input {
-    @apply flex bg-primary-ligth rounded-lg pl-2.5 w-full items-center border-indigo-500/0 hover:border-yellow-400/70 border-[3px] border-solid;
+    @apply flex bg-primary-ligth rounded-lg pl-2.5 w-full items-center border-indigo-500/0 focus:border-yellow-400/70 border-[3px] border-solid;
   }
 
   .modal-form-input {
-    @apply w-full h-9 bg-primary-ligth outline-0 rounded-lg pr-px pl-1 outline-none;
+    @apply w-full h-9 bg-primary-ligth outline-0 rounded-lg pr-px pl-1 outline-none placeholder:text-gray-600 focus:placeholder:text-gray-200;
   }
   .btn-yellow-submit {
     @apply bg-yellow-400 w-full h-9 rounded-xl font-bold text-xl text-black;
