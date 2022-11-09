@@ -21,8 +21,12 @@ import { useGetInfoUser } from "../../hooks/useGetUserInfo";
 function HomePage() {
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
-  
-  const { logout, users } = useAuthentication();
+  const [barMenuIcon, setBarMenuIcon] = useState("sm:hidden w-6 text-center");
+  const [closeIcon, setCloseIcon] = useState("hidden");
+  const [asideClass, setAsideClass] = useState(
+    "absolute top-[-200%] ease-in-out duration-500 w-full sm:aside-home"
+  );
+  const { logout } = useAuthentication();
   const { userName } = useGetInfoUser();
 
   return (
@@ -115,6 +119,7 @@ function HomePage() {
             <h1 className="text-4xl font-bold">Select your game</h1>
 
             <div className="section-div-games">
+              <Link href={"dashboard/tibia"}>
               <Link href={""} className="hover:scale-110">
                 <Image
                   src={tibiaImage}
