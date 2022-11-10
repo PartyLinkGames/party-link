@@ -53,7 +53,7 @@ export const useRegisterCharTibia = () => {
           setDoc(
             doc(db, "users", uid),
             {
-              nickName: arrayUnion(nickName),
+              nickName: arrayUnion(response.data.characters.character.name),
             },
             { merge: true }
           );
