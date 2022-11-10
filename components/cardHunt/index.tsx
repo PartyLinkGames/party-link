@@ -43,7 +43,6 @@ export default function HuntCard({
   const [isHunt, setIsHunt] = useState<boolean>(false);
 
   const { hunt, ids } = useFetchHunts();
-  // console.log(hunt);
 
   useEffect(() => {
     const selectedHunt = () => {
