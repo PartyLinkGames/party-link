@@ -218,7 +218,7 @@ export default function Developers() {
                   src={imageMarcio}
                 />
                 <p className="text-white mt-4 px-4 font-bold text-sm">
-                  Márcio, 19, Rio de Janeiro - RJ
+                  Márcio, 20, Rio de Janeiro - RJ
                 </p>
                 <div className="text-white flex flex-col items-center w-full gap-4 mt-4 justify-between px-4 pb-4">
                   <a
