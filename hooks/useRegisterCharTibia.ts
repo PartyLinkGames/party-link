@@ -12,6 +12,7 @@ import {
   getDocs,
   getDoc,
   query,
+  onSnapshot,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -33,13 +34,23 @@ export const useRegisterCharTibia = () => {
     getUserUid();
   });
   const registerChar = async (uid: string, nickName: string) => {
+    let arrayForConsult: any = [];
     try {
       const response = await instance(`v3/character/${nickName}`);
       console.log(response);
       if (response.data.characters.character.name !== "") {
-        const data = await getDoc(doc(db, "users", uid));
-        const chars = data.data();
-        console.log(chars);
+        const q = query(
+          collection(db, "users"),
+          where("nickName", "array-contains", nickName)
+        );
+        onSnapshot(q, (docs) => {
+          docs.docs.map((doc) => {
+            arrayForConsult.push(doc.data());
+            console.log(doc.data());
+          });
+          console.log(arrayForConsult);
+        });
+
         try {
           setDoc(
             doc(db, "users", uid),
@@ -49,17 +60,6 @@ export const useRegisterCharTibia = () => {
             { merge: true }
           );
         } catch (error) {}
-        // if (chars?.nickName?.length > 0) {
-        //   updateDoc(doc(db, "users", uid), {
-        //     nickName: arrayUnion(nickName),
-        //   });
-        // } else {
-        //   try {
-        //     setDoc(doc(db, "users", uid), {
-        //       nickName: arrayUnion(nickName),
-        //     });
-        //   } catch (error) {}
-        // }
       } else {
         toast.error("Account does not exist", {
           theme: "dark",
