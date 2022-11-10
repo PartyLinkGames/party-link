@@ -47,12 +47,8 @@ export default function Developers() {
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
-  const {
-    getAccountInfo,
-    charName,
-    charLevel,
-    charVocation,
-  } = useGetAccountInfo();
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
 
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
@@ -228,7 +224,7 @@ export default function Developers() {
                   src={imageMarcio}
                 />
                 <p className="text-white mt-4 px-4 font-bold text-sm h-11">
-                  Márcio, 19, Rio de Janeiro - RJ
+                  Márcio, 20, Rio de Janeiro - RJ
                 </p>
                 <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
                   Quality Assurance
