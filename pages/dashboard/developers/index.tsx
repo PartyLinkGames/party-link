@@ -161,19 +161,22 @@ export default function Developers() {
                   height={300}
                   src={imagePedro}
                 />
-                <p className="text-white mt-4 px-4 font-bold text-sm">
+                <p className="text-white mt-4 px-4 font-bold text-sm h-11">
                   Pedro, 25, Belo Horizonte - MG
+                </p>
+                <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
+                  Product Owner
                 </p>
                 <div className="text-white flex flex-col items-center w-full gap-4 mt-4 justify-between px-4 pb-4">
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://www.linkedin.com/in/pedrohenriquefeitosa/"
                   >
                     <BsLinkedin className="cursor-pointer" />
                     <p>Linkedin</p>
                   </a>
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://github.com/pedrofeitosa97"
                   >
                     <BsGithub className="cursor-pointer" />
@@ -189,19 +192,22 @@ export default function Developers() {
                   height={300}
                   src={imageAndressa}
                 />
-                <p className="text-white mt-4 px-4 font-bold text-sm text-ellipsis">
+                <p className="text-white mt-4 px-4 font-bold text-sm text-ellipsis h-11">
                   Andressa, 19, Angra dos Reis - RJ
+                </p>
+                <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
+                  Quality Assurance
                 </p>
                 <div className="text-white flex flex-col items-center w-full gap-4 mt-4 justify-between px-4 pb-4">
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://www.linkedin.com/in/andressalsmenezes"
                   >
                     <BsLinkedin className="cursor-pointer" />
                     <p>Linkedin</p>
                   </a>
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://github.com/AndressaLSMenezes"
                   >
                     <BsGithub className="cursor-pointer" />
@@ -217,19 +223,22 @@ export default function Developers() {
                   height={300}
                   src={imageMarcio}
                 />
-                <p className="text-white mt-4 px-4 font-bold text-sm">
-                  Marcio, 20, Rio de Janeiro - RJ
+                <p className="text-white mt-4 px-4 font-bold text-sm h-11">
+                  Márcio, 20, Rio de Janeiro - RJ
+                </p>
+                <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
+                  Quality Assurance
                 </p>
                 <div className="text-white flex flex-col items-center w-full gap-4 mt-4 justify-between px-4 pb-4">
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://www.linkedin.com/in/marciocalenzo/"
                   >
                     <BsLinkedin className="cursor-pointer" />
                     <p>Linkedin</p>
                   </a>
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://github.com/PzLeMoNBR"
                   >
                     <BsGithub className="cursor-pointer" />
@@ -245,19 +254,22 @@ export default function Developers() {
                   height={300}
                   src={imageGindri}
                 />
-                <p className="text-white mt-4 px-4 font-bold text-sm">
+                <p className="text-white mt-4 px-4 font-bold text-sm h-11">
                   Leonardo Gindri, 24, Florianópolis - SC
+                </p>
+                <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
+                  Scrum Master
                 </p>
                 <div className="text-white flex flex-col items-center w-full gap-4 mt-4 justify-between px-4 pb-4">
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://www.linkedin.com/in/leonardogindri/"
                   >
                     <BsLinkedin className="cursor-pointer" />
                     <p>Linkedin</p>
                   </a>
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://github.com/LeoGindri"
                   >
                     <BsGithub className="cursor-pointer" />
@@ -273,19 +285,22 @@ export default function Developers() {
                   height={300}
                   src={imageJhonatas}
                 />
-                <p className="text-white mt-4 px-4 font-bold text-sm">
+                <p className="text-white mt-4 px-4 font-bold text-sm h-11">
                   Jhonatas, 25, Mossoró - RN
+                </p>
+                <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
+                  Tech Lead
                 </p>
                 <div className="text-white flex flex-col items-center w-full gap-4 mt-4 justify-between px-4 pb-4">
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://www.linkedin.com/in/jhonatasalves/"
                   >
                     <BsLinkedin className="cursor-pointer" />
                     <p>Linkedin</p>
                   </a>
                   <a
-                    className="flex w-full bg-black block rounded-lg px-2 pt-1 pb-1 text-center gap-16"
+                    className="flex w-full bg-black rounded-lg px-2 pt-1 pb-1 text-center gap-16"
                     href="https://github.com/Jhonatas-Matheus"
                   >
                     <BsGithub className="cursor-pointer" />
