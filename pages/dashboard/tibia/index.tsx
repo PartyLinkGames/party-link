@@ -89,7 +89,7 @@ function HomePage() {
         <div className="w-full h-full fixed bg-[#00000058]"></div>
       </div>
 
-      <header className="fixed z-40 w-screen bg-primary flex items-center justify-between py-3 text-white ">
+      <header className="fixed z-40 w-screen  bg-gradient-to-r  from-primary-dark to-purple-800 via-[#2f0b4d]  flex items-center justify-between py-3 text-white sm:bg-backGroundGradient1 ">
         <p className="text-2xl logo ml-5">PartyLink</p>
         <div className=" mr-5 flex items-center gap-3">
           <p className="hidden sm:flex">Hello, {userName}</p>
@@ -174,8 +174,8 @@ function HomePage() {
 
         <section className="section-mobile h-full">
           <div className="w-90 h-full mt-24 sm:mt-40 col-center gap-10 max-w-[1400px]">
-            <header className="section-div-header">
-              <div className="col-center sm:w-[32%] gap-3 justify-center bg-[#00000058] py-2 sm:h-full">
+            <header className="section-div-header ">
+              <div className="col-center sm:w-[32%] gap-3  bg-[#00000000] py-2 sm:h-full">
                 <div className="flex items-center justify-between w-90">
                   <label
                     htmlFor="newCharacter"
@@ -226,8 +226,8 @@ function HomePage() {
                   </button>
                 </form>
               </div>
-              <div className="sm:w-[32%] col-center justify-center bg-[#00000058] mt-5 sm:mt-0 relative py-2 sm:py-0 sm:h-full">
-                <div className="flex items-center justify-between w-90">
+              <div className="sm:w-[32%] col-center justify-center bg-[#00000000] mt-5 sm:mt-0 relative py-2 sm:py-0 sm:h-full">
+                <div className="flex items-center justify-between py-2  w-90">
                   <p className="font-bold text-lg text-yellow-400">
                     Choose your character
                   </p>
@@ -279,7 +279,7 @@ function HomePage() {
                 className={
                   character == false
                     ? "hidden"
-                    : "flex sm:w-[32%] items-center bg-[#00000058] h-36 mt-5 sm:h-full sm:mt-0"
+                    : "flex sm:w-[32%] items-center bg-[#00000000] h-36 mt-5 sm:h-full sm:mt-0"
                 }
               >
                 <figure className="relative h-full w-3/6">

@@ -16,9 +16,9 @@ export function CardHunts({
 }: iCardHunts) {
   const { fetchMarkingHunts } = useFetchMarkingHunts();
   return (
-    <li className="bg-gradient-to-b from-backGroundGradient1 to-backGroundGradient2 translate-[z-0] rounded-lg list-none hover:scale-[1.02]  md:transform-none ease-in-out duration-200 ">
+    <li className="bg-gradient-to-b from-backGroundGradient1 to-backGroundGradient2 translate-[z-0] rounded-lg list-none hover:scale-[1.02] max-w-[330px]  md:transform-none ease-in-out duration-200 ">
       <Image
-        className="rounded-t-lg"
+        className="rounded-t-lg w-max"
         width={330}
         height={330}
         alt={data.dungeon.title}
@@ -65,7 +65,7 @@ export function CardHunts({
           <button
             className="self-end bg-backGroundButton h-[28px] w-[89px] rounded-lg font-bold text-[13px] hover:bg-opacity-[0.9]"
             id={data.idFB}
-            onClick={(e) => {
+            onClick={(e: any) => {
               handleOpenModalMarkingHunt();
               fetchMarkingHunts(e.target.id);
               setChoseHuntId(e.target.id);

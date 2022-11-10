@@ -207,7 +207,7 @@
   }
 
   .section-div-header {
-    @apply w-full pb-8 sm:pb-0 bg-[#00000058] gap-5 rounded-lg sm:h-48  sm:flex sm:items-center;
+    @apply w-full pb-8 sm:pb-0 bg-[#000000a4] gap-5 rounded-lg sm:max-h-48  sm:flex sm:items-center;
   }
 
   .section-div-header-form-div {
@@ -219,6 +219,6 @@
   }
 
   .section-div-header-choose-ul {
-    @apply w-90 h-40 sm:h-full col-center gap-2 overflow-y-auto py-3 mt-1 sm:mt-0;
+    @apply w-90 h-40 sm:h-full flex-col flex  gap-2 overflow-y-auto py-3 mt-1 sm:mt-0;
   }
 }
