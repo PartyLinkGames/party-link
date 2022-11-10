@@ -47,12 +47,8 @@ export default function Developers() {
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
-  const {
-    getAccountInfo,
-    charName,
-    charLevel,
-    charVocation,
-  } = useGetAccountInfo();
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
 
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
