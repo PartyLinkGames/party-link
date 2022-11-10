@@ -5,6 +5,7 @@ import HuntingHours from "../huntingHours";
 import { ModalContext } from "../../contexts/ContextModal";
 import { useFetchMarkingHunts } from "../../hooks/useFetchMarkingHunts";
 import { useScheduleHunt } from "../../hooks/useSchedulerHunt";
+import { toast } from "react-toastify";
 
 interface iHuntingMarkingProps {
   choseHuntId: string;
@@ -32,12 +33,30 @@ export default function HuntingMarking({
   const { scheduleHunt } = useScheduleHunt();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    fetchMarkingHunts(choseHuntId, date);
+    const hoje = new Date().toISOString().slice(0, 10);
+
+    if (hoje <= date) {
+      fetchMarkingHunts(choseHuntId, date);
+    } else {
+      toast.error("The date cannot be in the past", {
+        theme: "dark",
+        autoClose: 2000,
+      });
+    }
   };
   const handleRegisterNewHunt = (e: React.FormEvent) => {
     e.preventDefault();
-    fetchMarkingHunts(choseHuntId, date);
-    scheduleHunt(charName, choseHuntId, date, newHuntHours);
+    const hoje = new Date().toISOString().slice(0, 10);
+
+    if (hoje <= date) {
+      fetchMarkingHunts(choseHuntId, date);
+      scheduleHunt(charName, choseHuntId, date, newHuntHours);
+    } else {
+      toast.error("The date cannot be in the past", {
+        theme: "dark",
+        autoClose: 2000,
+      });
+    }
   };
   return (
     <div
