@@ -35,21 +35,31 @@ export const useRegisterCharTibia = () => {
   const registerChar = async (uid: string, nickName: string) => {
     try {
       const response = await instance(`v3/character/${nickName}`);
+      console.log(response);
       if (response.data.characters.character.name !== "") {
         const data = await getDoc(doc(db, "users", uid));
         const chars = data.data();
-        if (chars?.nickName)
-          if (chars?.nickName?.length > 0) {
-            updateDoc(doc(db, "users", uid), {
+        console.log(chars);
+        try {
+          setDoc(
+            doc(db, "users", uid),
+            {
               nickName: arrayUnion(nickName),
-            });
-          } else {
-            try {
-              setDoc(doc(db, "users", uid), {
-                nickName: arrayUnion(nickName),
-              });
-            } catch (error) {}
-          }
+            },
+            { merge: true }
+          );
+        } catch (error) {}
+        // if (chars?.nickName?.length > 0) {
+        //   updateDoc(doc(db, "users", uid), {
+        //     nickName: arrayUnion(nickName),
+        //   });
+        // } else {
+        //   try {
+        //     setDoc(doc(db, "users", uid), {
+        //       nickName: arrayUnion(nickName),
+        //     });
+        //   } catch (error) {}
+        // }
       } else {
         toast.error("Account does not exist", {
           theme: "dark",
