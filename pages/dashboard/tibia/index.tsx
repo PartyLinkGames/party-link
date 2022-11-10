@@ -84,8 +84,8 @@ function HomePage() {
   };
   return (
     <div className="w-screen min-h-[100vh] col-center">
-      <div className="w-screen h-screen relative">
-        <div className="bg-[url('https://wallpapercave.com/wp/wp7219130.jpg')] w-full h-full fixed"></div>
+      <div className="w-screen h-screen ">
+        <div className="bg-[url('https://wallpapercave.com/wp/wp7219130.jpg')] bg-cover w-full h-full fixed"></div>
         <div className="w-full h-full fixed bg-[#00000058]"></div>
       </div>
 
