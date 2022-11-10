@@ -68,7 +68,7 @@ export default function HuntingMarking({
     <div
       className={
         modalHuntingMarkIsOpen
-          ? "modal-contaneir opacity-100 pointer-events-auto "
+          ? "modal-contaneir opacity-100 pointer-events-auto bg-background-color-cloudy "
           : "modal-contaneir2 opacity-0 pointer-events-none"
       }
     >

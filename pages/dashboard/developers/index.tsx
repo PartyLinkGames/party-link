@@ -47,12 +47,8 @@ export default function Developers() {
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
-  const {
-    getAccountInfo,
-    charName,
-    charLevel,
-    charVocation,
-  } = useGetAccountInfo();
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
 
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
@@ -114,7 +110,7 @@ export default function Developers() {
           >
             <div className="aside-bar">
               <IoHome />
-              <HiUserGroup />
+              {/* <HiUserGroup /> */}
               <FaWalking />
               <BsFillPersonFill />
             </div>
@@ -132,10 +128,10 @@ export default function Developers() {
                   <p>Home</p>
                 </button>
               </Link>
-              <button className="aside-nav-btn">
+              {/* <button className="aside-nav-btn">
                 <HiUserGroup className="text-2xl" />
                 <p>Teams</p>
-              </button>
+              </button> */}
               <Link href={"/dashboard/developers"} className="hover:scale-110">
                 <button className="aside-nav-btn">
                   <FaWalking className="text-2xl" />

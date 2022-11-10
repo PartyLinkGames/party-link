@@ -92,7 +92,7 @@ export default function Profile() {
           >
             <div className="aside-bar">
               <IoHome />
-              <HiUserGroup />
+              {/* <HiUserGroup /> */}
               <FaWalking />
               <BsFillPersonFill />
             </div>
@@ -101,7 +101,9 @@ export default function Profile() {
           </div>
 
           <div
-            className={hideNavDesktop ? "sm:aside-div" : "sm:aside-div-hidden"}
+            className={
+              hideNavDesktop ? "sm:aside-div z-50" : "sm:aside-div-hidden z-50"
+            }
           >
             <nav className="aside-nav">
               <Link href={"/dashboard/"} className="hover:scale-110">
@@ -110,10 +112,10 @@ export default function Profile() {
                   <p>Home</p>
                 </button>
               </Link>
-              <button className="aside-nav-btn">
+              {/* <button className="aside-nav-btn">
                 <HiUserGroup className="text-2xl" />
                 <p>Teams</p>
-              </button>
+              </button> */}
               <Link href={"/dashboard/developers"} className="hover:scale-110">
                 <button className="aside-nav-btn">
                   <FaWalking className="text-2xl" />
