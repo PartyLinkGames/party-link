@@ -59,7 +59,7 @@ export default function ModalRegister() {
     <div
       className={
         modalRegisterIsOpen
-          ? "modal-contaneir opacity-100 pointer-events-auto"
+          ? "modal-contaneir opacity-100 pointer-events-auto bg-background-color-cloudy"
           : "modal-contaneir opacity-0 pointer-events-none"
       }
     >

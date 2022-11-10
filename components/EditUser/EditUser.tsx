@@ -11,7 +11,7 @@ export default function ModalEditUser() {
     updateCurrentProfile(newUserName, newPhoto);
   };
   return (
-    <div className="modal-contaneir">
+    <div className="modal-contaneir z-10">
       <section className="bg-primary-dark w-full max-w-sm py-10 col-center justify-center rounded-lg">
         <form
           className="flex flex-col w-[80%] gap-3 mt-5 text-white"

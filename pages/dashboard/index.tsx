@@ -93,7 +93,7 @@ function HomePage() {
           >
             <div className="aside-bar">
               <IoHome />
-              <HiUserGroup />
+              {/* <HiUserGroup /> */}
               <FaWalking />
               <BsFillPersonFill />
             </div>
@@ -109,14 +109,16 @@ function HomePage() {
                 <IoHome className="text-2xl" />
                 <p>Home</p>
               </button>
-              <button className="aside-nav-btn">
+              {/* <button className="aside-nav-btn">
                 <HiUserGroup className="text-2xl" />
                 <p>Teams</p>
-              </button>
-              <button className="aside-nav-btn">
-                <FaWalking className="text-2xl" />
-                <p>Developers</p>
-              </button>
+              </button> */}
+              <Link href={"/dashboard/developers"} className="hover:scale-110">
+                <button className="aside-nav-btn">
+                  <FaWalking className="text-2xl" />
+                  <p>Developers</p>
+                </button>
+              </Link>
               <Link href={"/dashboard/profile"} className="hover:scale-110">
                 <button className="aside-nav-btn">
                   <BsFillPersonFill className="text-2xl" />

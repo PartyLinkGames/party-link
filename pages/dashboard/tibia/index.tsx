@@ -50,13 +50,8 @@ function HomePage() {
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
 
-  const {
-    getAccountInfo,
-    charName,
-    charLevel,
-    charVocation,
-  } = useGetAccountInfo();
-
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
 
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
@@ -144,7 +139,7 @@ function HomePage() {
           >
             <div className="aside-bar">
               <IoHome />
-              <HiUserGroup />
+              {/* <HiUserGroup /> */}
               <FaWalking />
               <BsFillPersonFill />
             </div>
@@ -162,10 +157,10 @@ function HomePage() {
                   <p>Home</p>
                 </button>
               </Link>
-              <button className="aside-nav-btn">
+              {/* <button className="aside-nav-btn">
                 <HiUserGroup className="text-2xl" />
                 <p>Teams</p>
-              </button>
+              </button> */}
               <Link href={"/dashboard/developers"} className="hover:scale-110">
                 <button className="aside-nav-btn">
                   <FaWalking className="text-2xl" />
@@ -293,7 +288,7 @@ function HomePage() {
                     : "flex sm:w-[32%] items-center bg-[#00000000] justify-end  h-36 mt-5 sm:h-full sm:mt-0"
                 }
               >
-                <figure className="relative h-full w-full flex items-center">
+                <figure className="relative h-full w-full flex items-start ">
                   <Image
                     src={characterImage}
                     alt="Char Image"
