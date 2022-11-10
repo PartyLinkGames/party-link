@@ -117,10 +117,12 @@ function HomePage() {
                 <FaWalking className="text-2xl" />
                 <p>Developers</p>
               </button>
-              <button className="aside-nav-btn">
-                <BsFillPersonFill className="text-2xl" />
-                <p>Profile</p>
-              </button>
+              <Link href={"/dashboard/profile"} className="hover:scale-110">
+                <button className="aside-nav-btn">
+                  <BsFillPersonFill className="text-2xl" />
+                  <p>Profile</p>
+                </button>
+              </Link>
               <button className="aside-nav-logout" onClick={logout}>
                 <FiLogOut className="text-2xl" />
                 <p>Logout</p>
