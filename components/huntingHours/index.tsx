@@ -35,7 +35,7 @@ export default function HuntingHours({
       <h3 className="leading-4 font-extrabold text-[14px] text-yellow-400 ">
         Horario de inicio da hunt: {hour}
       </h3>
-      <div className="gap-4 py-2  sm:py-0 sm:gap-0 w-full max-w-max overflow-x-auto px-2 flex sm:justify-around">
+      <div className="gap-4 py-2  sm:py-2 sm:gap-4 w-full max-w-max overflow-x-auto px-2 flex sm:justify-around">
         {team?.map((char: any) => {
           return (
             <CardPlayerOnHunt
