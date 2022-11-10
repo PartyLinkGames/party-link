@@ -10,9 +10,9 @@ import { BsFillPersonFill, BsPlusLg } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 
 import imageProfile from "../../../assets/Ellipse.svg";
-import characterImage from "../../../assets/Black_Knight.webp";
 
 import Image from "next/image";
+import { FigureCharacter } from "../../../components/figureCharacter";
 
 import { useState } from "react";
 import { LiCharacters } from "../../../components/LiCharacter";
@@ -282,13 +282,8 @@ function HomePage() {
                     : "flex sm:w-[32%] items-center bg-[#00000000] h-36 mt-5 sm:h-full sm:mt-0"
                 }
               >
-                <figure className="relative h-full w-3/6">
-                  <Image
-                    src={characterImage}
-                    alt="Tiu Chiko"
-                    className="absolute bottom-10 right-3 rounded-sm"
-                  />
-                </figure>
+                <FigureCharacter charName={charName as string} charVocation={charVocation as string} />
+
                 <div className="flex flex-col items-end justify-between w-3/6 mr-3 text-white h-80">
                   <div className="flex flex-col items-end gap-2">
                     <p>Name: {charName}</p>
