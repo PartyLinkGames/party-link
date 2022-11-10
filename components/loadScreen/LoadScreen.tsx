@@ -5,7 +5,7 @@ import Image from "next/image";
 import loadingGif from "../../assets/loading-gif.gif";
 
 type Props = {
-  children?: object;
+  children: any;
 };
 
 const LoadScreen = ({ children }: Props) => {
