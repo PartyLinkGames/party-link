@@ -114,7 +114,7 @@ export default function ModalLogin() {
           <span className="font-normal text-[9.5px]">
             {errors.password?.message}
           </span>
-          <label
+          {/* <label
             className="w-[25px] h-[21px] bg-primary-ligth rounded-lg flex gap- 10 itens-center self-start align-middle"
             htmlFor=""
           >
@@ -125,7 +125,7 @@ export default function ModalLogin() {
               {check ? <Image alt="monster icon" src={checkIcon} /> : ""}
             </button>
             <span className="absolute ml-10  text-sm">Remember me</span>
-          </label>
+          </label> */}
           <button type="submit" className="btn-yellow mb-8 mt-2">
             Login
           </button>
