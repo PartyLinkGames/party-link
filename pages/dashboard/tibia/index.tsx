@@ -49,12 +49,8 @@ function HomePage() {
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
-  const {
-    getAccountInfo,
-    charName,
-    charLevel,
-    charVocation,
-  } = useGetAccountInfo();
+  const { getAccountInfo, charName, charLevel, charVocation } =
+    useGetAccountInfo();
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
@@ -288,14 +284,14 @@ function HomePage() {
                     : "flex sm:w-[32%] items-center bg-[#00000000] justify-end  h-36 mt-5 sm:h-full sm:mt-0"
                 }
               >
-                <figure className="relative h-full w-[30%] sm:w-[36%]">
+                <figure className="relative h-full w-full flex items-center">
                   <Image
                     src={characterImage}
-                    alt="Tiu Chiko"
-                    className="absolute bottom-10 sm:right-3 md:left-3 rounded-sm"
+                    alt="Char Image"
+                    className="absolute w-[52%]"
                   />
                 </figure>
-                <div className="flex flex-col items-end justify-between w-3/6 mr-3 text-white h-80">
+                <div className="flex text-end flex-col items-end justify-between w-3/6 mr-3 text-white h-80">
                   <div className="flex flex-col justify-end items-end gap-2">
                     <p>Name: {charName}</p>
                     <p>Class: {charVocation}</p>
