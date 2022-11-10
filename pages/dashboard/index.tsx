@@ -111,10 +111,12 @@ function HomePage() {
                 <HiUserGroup className="text-2xl" />
                 <p>Teams</p>
               </button>
-              <button className="aside-nav-btn">
-                <FaWalking className="text-2xl" />
-                <p>Developers</p>
-              </button>
+              <Link href={"/dashboard/developers"} className="hover:scale-110">
+                <button className="aside-nav-btn">
+                  <FaWalking className="text-2xl" />
+                  <p>Developers</p>
+                </button>
+              </Link>
               <button className="aside-nav-btn">
                 <BsFillPersonFill className="text-2xl" />
                 <p>Profile</p>

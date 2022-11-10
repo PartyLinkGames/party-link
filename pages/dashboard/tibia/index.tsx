@@ -13,6 +13,7 @@ import imageProfile from "../../../assets/Ellipse.svg";
 import characterImage from "../../../assets/Black_Knight.webp";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { useState } from "react";
 import { LiCharacters } from "../../../components/LiCharacter";
@@ -45,8 +46,12 @@ function HomePage() {
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
-  const { getAccountInfo, charName, charLevel, charVocation } =
-    useGetAccountInfo();
+  const {
+    getAccountInfo,
+    charName,
+    charLevel,
+    charVocation,
+  } = useGetAccountInfo();
 
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
@@ -146,10 +151,12 @@ function HomePage() {
                 <HiUserGroup className="text-2xl" />
                 <p>Teams</p>
               </button>
-              <button className="aside-nav-btn">
-                <FaWalking className="text-2xl" />
-                <p>Developers</p>
-              </button>
+              <Link href={"/dashboard/developers"} className="hover:scale-110">
+                <button className="aside-nav-btn">
+                  <FaWalking className="text-2xl" />
+                  <p>Developers</p>
+                </button>
+              </Link>
               <button className="aside-nav-btn">
                 <BsFillPersonFill className="text-2xl" />
                 <p>Profile</p>
