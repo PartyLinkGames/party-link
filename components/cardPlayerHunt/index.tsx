@@ -7,6 +7,8 @@ interface iCardPlayerOnHuntProps {
   choseHuntId: string;
   date: string;
   hour?: string;
+  charLevel: number | null;
+  charVocation: string | null;
 }
 export default function CardPlayerOnHunt({
   char,
@@ -14,6 +16,8 @@ export default function CardPlayerOnHunt({
   choseHuntId,
   date,
   hour,
+  charLevel,
+  charVocation,
 }: iCardPlayerOnHuntProps) {
   const { deleteHuntMark } = useScheduleHunt();
   const handleDeleteHunt = () => {
@@ -34,7 +38,7 @@ export default function CardPlayerOnHunt({
         <div className="flex justify-between items-center ">
           <div className="flex flex-col gap-2">
             <p className="leading-4 font-bold text-[13px] text-yellow-400  ">
-              Level:135
+              Level:157
             </p>
             <p className="leading-4 font-bold text-[15px] text-yellow-400 ">
               Druid
