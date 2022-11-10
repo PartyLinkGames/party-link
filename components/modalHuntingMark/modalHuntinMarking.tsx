@@ -34,6 +34,7 @@ export default function HuntingMarking({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const hoje = new Date().toISOString().slice(0, 10);
+    console.log(markedHunt);
 
     if (hoje <= date) {
       fetchMarkingHunts(choseHuntId, date);
@@ -48,11 +49,16 @@ export default function HuntingMarking({
     e.preventDefault();
     const hoje = new Date().toISOString().slice(0, 10);
 
-    if (hoje <= date) {
+    if (hoje <= date && newHuntHours) {
       fetchMarkingHunts(choseHuntId, date);
       scheduleHunt(charName, choseHuntId, date, newHuntHours);
-    } else {
+    } else if (hoje > date) {
       toast.error("The date cannot be in the past", {
+        theme: "dark",
+        autoClose: 2000,
+      });
+    } else {
+      toast.error("Please select a hour", {
         theme: "dark",
         autoClose: 2000,
       });
@@ -123,6 +129,9 @@ export default function HuntingMarking({
                 className="bg-gray-300 w-[90px] h-[40px] font-bold  rounded-md text-md text-center "
                 onChange={(e) => setNewHuntHours(e.target.value)}
               >
+                <option value="" disabled selected hidden>
+                  Empty
+                </option>
                 <option value="00:00">00:00</option>
                 <option value="02:00">02:00</option>
                 <option value="04:00">04:00</option>
@@ -145,20 +154,22 @@ export default function HuntingMarking({
             </button>
           </form>
         </div>
-        <ul className="py-2 rounded-md px-5 max-w-max w-full  flex flex-col gap-2">
+        <ul className="py-2 rounded-md px-5  max-w-max min-w-full  flex flex-col gap-2 overflow-auto max-h-96">
           {markedHunt?.map((hourHunt: any) => {
-            return (
-              <HuntingHours
-                hour={hourHunt.key}
-                team={hourHunt.chars}
-                charName={charName}
-                charLevel={charLevel}
-                charVocation={charVocation}
-                choseHuntId={choseHuntId}
-                date={date}
-                newHuntHours={newHuntHours}
-              />
-            );
+            if (hourHunt?.chars?.length > 0) {
+              return (
+                <HuntingHours
+                  hour={hourHunt.key}
+                  team={hourHunt.chars}
+                  charName={charName}
+                  charLevel={charLevel}
+                  charVocation={charVocation}
+                  choseHuntId={choseHuntId}
+                  date={date}
+                  newHuntHours={newHuntHours}
+                />
+              );
+            }
           })}
         </ul>
       </div>
