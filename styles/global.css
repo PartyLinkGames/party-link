@@ -61,7 +61,7 @@
   }
 
   button {
-    @apply cursor-pointer rounded-lg ;
+    @apply cursor-pointer rounded-lg;
   }
 
   input {
@@ -122,11 +122,14 @@
   /* Modal Login */
 
   .modal-contaneir {
-    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center duration-500 delay z-50;
+    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center duration-500  z-50;
+  }
+  .modal-contaneir2 {
+    @apply h-screen w-full bg-background-color-cloudy fixed flex px-5 justify-center items-center  z-50;
   }
 
   .modal-div-container {
-    @apply col-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 duration-500 delay relative;
+    @apply col-center max-w-sm w-full text-white bg-primary-dark rounded-3xl pb-10 duration-500 delay  relative;
   }
   .modal-form-label {
     @apply self-start text-headline3 font-bold leading-[17.58px];
