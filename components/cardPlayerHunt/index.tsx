@@ -21,7 +21,7 @@ export default function CardPlayerOnHunt({
   };
   return (
     <div
-      className="w-[125px] max-h-[150px] rounded-md shadow-[0px_0px_6px_2px_#3b1064,0px_0px_15px_0px_#02221a]  hover:shadow-[0px_0px_6px_2px_#9aaa05,0px_0px_15px_0px_#85bb08] overflow-y-auto bg-gradient-to-tr from-[#0a316bc5] via-[#29096688] to-[#1a4e9196] 
+      className="w-[125px] max-h-[150px] min-w-[125px]  rounded-md shadow-[0px_0px_6px_2px_#3b1064,0px_0px_15px_0px_#02221a]  hover:shadow-[0px_0px_6px_2px_#9aaa05,0px_0px_15px_0px_#85bb08] overflow-y-auto bg-gradient-to-tr from-[#0a316bc5] via-[#29096688] to-[#1a4e9196] 
       "
     >
       <div className="flex p-2 gap-1 rounded-md flex-col  ">

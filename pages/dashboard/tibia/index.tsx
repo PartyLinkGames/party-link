@@ -218,10 +218,7 @@ function HomePage() {
                     className="w-90 h-8"
                     {...register("infoName")}
                   />
-                  <button
-                    type="submit"
-                    className="btn-yellow w-90 h-9"
-                  >
+                  <button type="submit" className="btn-yellow w-90 h-9">
                     Add character
                   </button>
                 </form>
@@ -279,18 +276,18 @@ function HomePage() {
                 className={
                   character == false
                     ? "hidden"
-                    : "flex sm:w-[32%] items-center bg-[#00000000] h-36 mt-5 sm:h-full sm:mt-0"
+                    : "flex sm:w-[32%] items-center bg-[#00000000] justify-end  h-36 mt-5 sm:h-full sm:mt-0"
                 }
               >
-                <figure className="relative h-full w-3/6">
+                <figure className="relative h-full w-[30%] sm:w-[36%]">
                   <Image
                     src={characterImage}
                     alt="Tiu Chiko"
-                    className="absolute bottom-10 right-3 rounded-sm"
+                    className="absolute bottom-10 sm:right-3 md:left-3 rounded-sm"
                   />
                 </figure>
                 <div className="flex flex-col items-end justify-between w-3/6 mr-3 text-white h-80">
-                  <div className="flex flex-col items-end gap-2">
+                  <div className="flex flex-col justify-end items-end gap-2">
                     <p>Name: {charName}</p>
                     <p>Class: {charVocation}</p>
                     <p>Level: {charLevel}</p>
