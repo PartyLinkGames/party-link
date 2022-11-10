@@ -37,7 +37,7 @@ export const useRegisterCharTibia = () => {
     let arrayForConsult: any = [];
     try {
       const response = await instance(`v3/character/${nickName}`);
-      console.log(response);
+
       if (response.data.characters.character.name !== "") {
         const q = query(
           collection(db, "users"),
@@ -46,9 +46,7 @@ export const useRegisterCharTibia = () => {
         onSnapshot(q, (docs) => {
           docs.docs.map((doc) => {
             arrayForConsult.push(doc.data());
-            console.log(doc.data());
           });
-          console.log(arrayForConsult);
         });
 
         try {
