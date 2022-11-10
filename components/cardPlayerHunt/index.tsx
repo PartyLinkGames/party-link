@@ -15,7 +15,6 @@ export default function CardPlayerOnHunt({
   date,
   hour,
 }: iCardPlayerOnHuntProps) {
-  console.log(char, charName, choseHuntId, date, hour);
   const { deleteHuntMark } = useScheduleHunt();
   const handleDeleteHunt = () => {
     deleteHuntMark(charName, choseHuntId, date, hour);
