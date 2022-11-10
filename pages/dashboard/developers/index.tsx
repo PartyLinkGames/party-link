@@ -47,8 +47,12 @@ export default function Developers() {
   const { userName, userUid } = useGetInfoUser();
   const { logout } = useAuthentication();
   const { charsCollection, getCharCollection } = useGetCharCollection();
-  const { getAccountInfo, charName, charLevel, charVocation } =
-    useGetAccountInfo();
+  const {
+    getAccountInfo,
+    charName,
+    charLevel,
+    charVocation,
+  } = useGetAccountInfo();
 
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
@@ -122,7 +126,7 @@ export default function Developers() {
             className={hideNavDesktop ? "sm:aside-div" : "sm:aside-div-hidden"}
           >
             <nav className="aside-nav">
-              <Link href={"/dashboard/tibia"} className="hover:scale-110">
+              <Link href={"/dashboard/"} className="hover:scale-110">
                 <button className="aside-nav-btn">
                   <IoHome className="text-2xl" />
                   <p>Home</p>
@@ -138,10 +142,12 @@ export default function Developers() {
                   <p>Developers</p>
                 </button>
               </Link>
-              <button className="aside-nav-btn">
-                <BsFillPersonFill className="text-2xl" />
-                <p>Profile</p>
-              </button>
+              <Link href={"/dashboard/profile"} className="hover:scale-110">
+                <button className="aside-nav-btn">
+                  <BsFillPersonFill className="text-2xl" />
+                  <p>Profile</p>
+                </button>
+              </Link>
               <button className="aside-nav-logout" onClick={logout}>
                 <FiLogOut className="text-2xl" />
                 <p>Logout</p>
@@ -224,7 +230,7 @@ export default function Developers() {
                   src={imageMarcio}
                 />
                 <p className="text-white mt-4 px-4 font-bold text-sm h-11">
-                  Márcio, 20, Rio de Janeiro - RJ
+                  Márcio, 19, Rio de Janeiro - RJ
                 </p>
                 <p className="text-[#FCDA2A] mt-4 px-4 font-bold text-sm">
                   Quality Assurance

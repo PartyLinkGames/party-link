@@ -55,6 +55,7 @@ function HomePage() {
     charLevel,
     charVocation,
   } = useGetAccountInfo();
+
   const [hideNavDesktop, setHideNavDesktop] = useState(false);
   const [hideNavMobile, setHideNavMobile] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
@@ -153,7 +154,7 @@ function HomePage() {
             className={hideNavDesktop ? "sm:aside-div" : "sm:aside-div-hidden"}
           >
             <nav className="aside-nav">
-              <Link href={"/dashboard/tibia"} className="hover:scale-110">
+              <Link href={"/dashboard/"} className="hover:scale-110">
                 <button className="aside-nav-btn">
                   <IoHome className="text-2xl" />
                   <p>Home</p>
@@ -169,10 +170,12 @@ function HomePage() {
                   <p>Developers</p>
                 </button>
               </Link>
-              <button className="aside-nav-btn">
-                <BsFillPersonFill className="text-2xl" />
-                <p>Profile</p>
-              </button>
+              <Link href={"/dashboard/profile"} className="hover:scale-110">
+                <button className="aside-nav-btn">
+                  <BsFillPersonFill className="text-2xl" />
+                  <p>Profile</p>
+                </button>
+              </Link>
               <button className="aside-nav-logout" onClick={logout}>
                 <FiLogOut className="text-2xl" />
                 <p>Logout</p>
