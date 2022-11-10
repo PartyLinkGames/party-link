@@ -18,11 +18,11 @@ const teste = (props: Props) => {
       <form onSubmit={handleSubmmit}>
         <input
           type="text"
-          placeholder="Ditgite o nome do char"
+          placeholder="Digite o nome do char"
           value={nickName}
           onChange={(e) => setNickName(e.target.value)}
         />
-        <button type="submit">Adcionar Char</button>
+        <button type="submit">Adicionar Char</button>
       </form>
     </>
   );

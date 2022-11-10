@@ -39,7 +39,15 @@ function LandingPage() {
           </header>
           <Image alt="boys Playing" src={mainImg} className="sm:w-72" />
         </div>
-        <aside className={modalRegisterIsOpen ? "aside-dark z-0" : modalLoginIsOpen ? "aside-dark z-0" : "aside-dark z-20"}>
+        <aside
+          className={
+            modalRegisterIsOpen
+              ? "aside-dark z-0"
+              : modalLoginIsOpen
+              ? "aside-dark z-0"
+              : "aside-dark z-20"
+          }
+        >
           <p className="hidden sm:flex sm:h-12 text-2xl logo mt-10">
             PartyLink
           </p>
