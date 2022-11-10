@@ -48,33 +48,35 @@ export default function HuntCard({
     const selectedHunt = () => {
       setSelectHunt([]);
       hunt.map((elem, index) => {
-        const newObj = {
-          dungeon: elem.dungeon,
-          id: elem.id,
-          image: elem.image,
-          isFavorite: elem.isFavorite,
-          isUpvoted: elem.isUpvoted,
-          maxLevel: elem.maxLevel,
-          maxProfitH: elem.maxProfitH,
-          maxXpH: elem.maxXpH,
-          minLevel: elem.minLevel,
-          minProfitH: elem.minProfitH,
-          minXpH: elem.minXpH,
-          status: elem.status,
-          teamSize: elem.teamSize,
-          title: elem.title,
-          type: elem.type,
-          upvoteCount: elem.upvoteCount,
-          user: elem.user,
-          vocation: elem.vocation,
-          idFB: ids[index],
-        };
+        if (ids) {
+          const newObj = {
+            dungeon: elem.dungeon,
+            id: elem.id,
+            image: elem.image,
+            isFavorite: elem.isFavorite,
+            isUpvoted: elem.isUpvoted,
+            maxLevel: elem.maxLevel,
+            maxProfitH: elem.maxProfitH,
+            maxXpH: elem.maxXpH,
+            minLevel: elem.minLevel,
+            minProfitH: elem.minProfitH,
+            minXpH: elem.minXpH,
+            status: elem.status,
+            teamSize: elem.teamSize,
+            title: elem.title,
+            type: elem.type,
+            upvoteCount: elem.upvoteCount,
+            user: elem.user,
+            vocation: elem.vocation,
+            idFB: ids[index],
+          };
 
-        if (isPlayer) {
-          if (level) {
-            if (newObj.minLevel <= level && newObj.maxLevel >= level) {
-              setSelectHunt((previous) => [...previous, newObj]);
-              setIsHunt(true);
+          if (isPlayer) {
+            if (level) {
+              if (newObj.minLevel <= level && newObj.maxLevel >= level) {
+                setSelectHunt((previous) => [...previous, newObj]);
+                setIsHunt(true);
+              }
             }
           }
         }
