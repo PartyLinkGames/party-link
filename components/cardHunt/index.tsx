@@ -8,8 +8,8 @@ interface iClassName {
   name: string;
   level: number | null;
   isPlayer: boolean;
-  setChoseHuntId: any;
-  handleOpenModalMarkingHunt: any;
+  setChoseHuntId: React.Dispatch<React.SetStateAction<string>>;
+  handleOpenModalMarkingHunt: () => void;
 }
 export interface iHuntObjNew {
   dungeon: iDungeon;

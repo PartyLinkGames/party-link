@@ -44,6 +44,8 @@ export default function HuntingHours({
               choseHuntId={choseHuntId}
               date={date}
               hour={hour}
+              charLevel={charLevel}
+              charVocation={charVocation}
             />
           );
         })}

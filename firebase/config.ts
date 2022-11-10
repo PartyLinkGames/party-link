@@ -10,6 +10,7 @@ const firebaseConfig = {
   messagingSenderId: "872817686730",
   appId: "1:872817686730:web:e9d11c1ff0514bfeb55c33",
   measurementId: "G-LBMPLNKLSZ",
+  // experimentalForce
 };
 
 export const app = initializeApp(firebaseConfig);
