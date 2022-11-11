@@ -34,8 +34,6 @@ export default function HuntingMarking({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const hoje = new Date().toISOString().slice(0, 10);
-    console.log(markedHunt);
-
     if (hoje <= date) {
       fetchMarkingHunts(choseHuntId, date);
     } else {

@@ -49,7 +49,6 @@ export const useRegisterCharTibia = () => {
             arrayForConsult.push(doc.data());
           });
         });
-
         try {
           setDoc(
             doc(db, "users", uid),

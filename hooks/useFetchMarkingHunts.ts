@@ -30,9 +30,6 @@ export const useFetchMarkingHunts = () => {
             const currentHunt = hunt.get("marcacoes");
             for (let i in currentHunt) {
               if (i === dateee) {
-                // markedHunt.forEach((element: any) => {
-                //   console.log(element);
-                // });
                 Object.keys(currentHunt[i]).forEach((key) => {
                   setMarkedHunts((previousState: any) => [
                     ...previousState,
@@ -43,7 +40,6 @@ export const useFetchMarkingHunts = () => {
                   ]);
                 });
               }
-              // console.log(typeof currentHunt);
             }
           }
         }
