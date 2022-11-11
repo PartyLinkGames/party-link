@@ -12,11 +12,8 @@ export const useEditProfile = () => {
     currentUser = user;
   });
   const updateCurrentProfile = (userName: string, photoUrl?: string) => {
-    console.log(currentUser);
     if (currentUser) {
-      console.log("Caiu no primeiro if referente a currentUser");
       if (photoUrl) {
-        console.log("Caiu no segundo if referente a photoURL");
         try {
           new URL(photoUrl);
           updateProfile(currentUser, {

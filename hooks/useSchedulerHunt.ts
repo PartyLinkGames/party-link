@@ -22,7 +22,6 @@ export const useScheduleHunt = () => {
     date: string,
     hour: string
   ) => {
-    console.log(nickName, idHunt, date, hour);
     const data = await getDoc(doc(db, "teste", idHunt));
     const hunt = data.data();
     try {
@@ -37,11 +36,7 @@ export const useScheduleHunt = () => {
         },
         { merge: true }
       );
-      console.log("deuBOM");
-    } catch (error) {
-      console.log(error);
-      console.log("deuRUIM");
-    }
+    } catch (error) {}
   };
   const joinInExistingHunt = (
     nickName: string | null,
@@ -62,11 +57,7 @@ export const useScheduleHunt = () => {
           },
           { merge: true }
         );
-      console.log("deuBOM");
-    } catch (error) {
-      console.log(error);
-      console.log("deuRUIM");
-    }
+    } catch (error) {}
   };
   const deleteHuntMark = (
     nickName: string | null,
@@ -87,11 +78,7 @@ export const useScheduleHunt = () => {
           },
           { merge: true }
         );
-      console.log("deuBOM");
-    } catch (error) {
-      console.log(error);
-      console.log("deuRUIM");
-    }
+    } catch (error) {}
   };
   return {
     scheduleHunt,

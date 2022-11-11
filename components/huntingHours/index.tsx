@@ -22,12 +22,9 @@ export default function HuntingHours({
   date,
   newHuntHours,
 }: iHoutingHoursProps) {
-  const { joinInExistingHunt, scheduleHunt } = useScheduleHunt();
-  console.log(team?.length);
+  const { joinInExistingHunt } = useScheduleHunt();
   const handleJoinInHunt = () => {
     joinInExistingHunt(charName, choseHuntId, date, hour);
-    console.log(choseHuntId);
-    console.log(charName);
   };
 
   return (
