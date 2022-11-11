@@ -5,9 +5,5 @@ export const instance = axios.create({
   timeout: 5000,
   headers: {
     "X-Custom-Header": "foobar",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Authorization",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-    "Content-Type": "application/json;charset=UTF-8",
   },
 });
