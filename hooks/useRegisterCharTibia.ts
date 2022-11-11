@@ -18,6 +18,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { app, db } from "../firebase/config";
 import { instance } from "../services/api";
+import { axios } from "axios";
+import { get } from "http";
 
 export const useRegisterCharTibia = () => {
   const [currentUser, setCurrentUser] = useState<
@@ -37,6 +39,9 @@ export const useRegisterCharTibia = () => {
     let arrayForConsult: any = [];
     try {
       const response = await instance(`v3/character/${nickName}`);
+      // const response  = fetch(`https://api.tibiadata.com/v3/character/${nickName}`).then(
+      //   (response)=> console.log(response)
+      // )
 
       if (response.data.characters.character.name !== "") {
         const q = query(
