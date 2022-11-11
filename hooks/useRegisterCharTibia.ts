@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { app, db } from "../firebase/config";
 import { instance } from "../services/api";
-import { axios } from "axios";
+// import { axios } from "axios";
 import { get } from "http";
 
 export const useRegisterCharTibia = () => {
