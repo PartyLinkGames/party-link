@@ -39,10 +39,6 @@ export const useRegisterCharTibia = () => {
     let arrayForConsult: any = [];
     try {
       const response = await instance(`v3/character/${nickName}`);
-      // const response  = fetch(`https://api.tibiadata.com/v3/character/${nickName}`).then(
-      //   (response)=> console.log(response)
-      // )
-
       if (response.data.characters.character.name !== "") {
         const q = query(
           collection(db, "users"),
